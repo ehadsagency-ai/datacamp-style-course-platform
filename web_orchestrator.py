@@ -11,6 +11,11 @@ from generate_course import get_course_data
 app = Flask(__name__)
 CORS(app)
 
+# Simple in-memory cache
+course_cache = None
+cache_timestamp = None
+CACHE_DURATION = 3600  # 1 hour
+
 USER_ROLE = os.getenv('USER_ROLE', 'admin')  # admin or user
 
 CONFIG_DIR = "/app/.orchestrator/config" if os.getenv('DOCKER') else "/Users/deo_metoyer/Downloads/.orchestrator/config"
@@ -246,7 +251,7 @@ def save_config_route():
 
 @app.route('/health')
 def health():
-    return 'OK'
+    return jsonify({"status": "OK", "version": "1.0", "courses_available": len(get_course_data())})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
@@ -271,8 +276,13 @@ def search():
 
 @app.route('/api/courses')
 def get_courses():
-    try:
-        courses = get_course_data()
-        return jsonify(courses)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    global course_cache, cache_timestamp
+    import time
+    current_time = time.time()
+    if course_cache is None or (cache_timestamp and current_time - cache_timestamp > CACHE_DURATION):
+        try:
+            course_cache = get_course_data()
+            cache_timestamp = current_time
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+    return jsonify(course_cache)
