@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  orchestrator:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - /Users/deo_metoyer/Downloads:/downloads
+    environment:
+      - DOCKER=1
+      - MANUS_API_KEY=${MANUS_API_KEY}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  automator:
+    build: .
+    command: python offline_automator.py
+    volumes:
+      - /Users/deo_metoyer/Downloads:/downloads
+    environment:
+      - DOCKER=1
