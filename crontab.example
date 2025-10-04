@@ -1,0 +1,12 @@
+# Crontab Example for DataCamp Course Platform
+# Install with: crontab crontab.example
+
+# Regenerate courses daily at 2 AM
+0 2 * * * cd /path/to/datacamp-repo && python3 cron_jobs.py
+
+# Alternative: Run specific jobs
+# 0 2 * * * cd /path/to/datacamp-repo && python3 -c "from cron_jobs import regenerate_courses; regenerate_courses()"
+
+# For production, adjust paths and ensure Python environment is activated
+# Example with virtualenv:
+# 0 2 * * * cd /path/to/datacamp-repo && /path/to/venv/bin/python3 cron_jobs.py
