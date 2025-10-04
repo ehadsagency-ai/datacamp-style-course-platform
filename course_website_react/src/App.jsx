@@ -14,6 +14,7 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem('token') || null)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [userStats, setUserStats] = useState({ total_xp: 0, completed_exercises: 0 })
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -23,16 +24,21 @@ function App() {
   useEffect(() => {
     if (token) {
       const apiBase = import.meta.env.VITE_API_BASE || '/api';
-      fetch(`${apiBase}/courses`, {
-        headers: { 'Authorization': `Bearer ${token}` }
-      })
-        .then(res => res.json())
-        .then(data => {
-          setCourseData(data);
+      Promise.all([
+        fetch(`${apiBase}/courses`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        }).then(res => res.json()),
+        fetch(`${apiBase}/user/stats`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        }).then(res => res.json())
+      ])
+        .then(([courses, stats]) => {
+          setCourseData(courses);
+          setUserStats(stats);
           setLoading(false);
         })
         .catch(err => {
-          console.error('Error fetching courses:', err);
+          console.error('Error fetching data:', err);
           setLoading(false);
         });
     } else {
@@ -148,6 +154,12 @@ function App() {
         <div className="pixel-title text-center flex-1">
           <h1 className="text-4xl text-data-deep">🌲 Data Analyst Course 🌲</h1>
           <p className="text-data-moss">Interactive Learning Platform</p>
+          {token && (
+            <div className="mt-2 text-sm">
+              <span className="text-yellow-500">⭐ XP: {userStats.total_xp}</span> | 
+              <span className="text-green-500 ml-2">✅ Completed: {userStats.completed_exercises}</span>
+            </div>
+          )}
         </div>
         <div className="flex gap-2">
           <button

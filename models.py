@@ -33,7 +33,7 @@ class User(db.Model):
 
 class Progress(db.Model):
     __tablename__ = 'progress'
-    
+
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     level = db.Column(db.String(50), nullable=False)
@@ -41,7 +41,8 @@ class Progress(db.Model):
     completed = db.Column(db.Boolean, default=False)
     completed_at = db.Column(db.DateTime)
     score = db.Column(db.Integer)
-    
+    xp_earned = db.Column(db.Integer, default=0)
+
     __table_args__ = (db.UniqueConstraint('user_id', 'level', 'exercise_index', name='_user_level_exercise_uc'),)
     
     def to_dict(self):
@@ -52,5 +53,6 @@ class Progress(db.Model):
             'exercise_index': self.exercise_index,
             'completed': self.completed,
             'completed_at': self.completed_at.isoformat() if self.completed_at else None,
-            'score': self.score
+            'score': self.score,
+            'xp_earned': self.xp_earned
         }

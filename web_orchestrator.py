@@ -1,6 +1,8 @@
 from flask import Flask, render_template_string, request, jsonify
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 import json
 import os
 import shutil
@@ -19,6 +21,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 jwt = JWTManager(app)
+limiter = Limiter(app, key_func=get_remote_address)
 
 with app.app_context():
     db.create_all()
@@ -287,6 +290,7 @@ def search():
     return jsonify({'results': results})
 
 @app.route('/api/register', methods=['POST'])
+@limiter.limit("5 per minute")
 def register():
     data = request.get_json()
     username = data.get('username')
@@ -310,6 +314,7 @@ def register():
     return jsonify({"message": "User created successfully", "user": user.to_dict()}), 201
 
 @app.route('/api/login', methods=['POST'])
+@limiter.limit("10 per minute")
 def login():
     data = request.get_json()
     username = data.get('username')
@@ -326,6 +331,7 @@ def login():
 
 @app.route('/api/courses')
 @jwt_required()
+@limiter.limit("100 per hour")
 def get_courses():
     global course_cache, cache_timestamp
     import time
@@ -340,6 +346,7 @@ def get_courses():
 
 @app.route('/api/progress', methods=['GET'])
 @jwt_required()
+@limiter.limit("200 per hour")
 def get_progress():
     user_id = get_jwt_identity()
     progress_items = Progress.query.filter_by(user_id=int(user_id)).all()
@@ -347,6 +354,7 @@ def get_progress():
 
 @app.route('/api/progress', methods=['POST'])
 @jwt_required()
+@limiter.limit("50 per hour")
 def save_progress():
     user_id = get_jwt_identity()
     data = request.get_json()
@@ -357,6 +365,8 @@ def save_progress():
     
     progress = Progress.query.filter_by(user_id=int(user_id), level=level, exercise_index=exercise_index).first()
     if progress:
+        if not progress.completed and completed:
+            progress.xp_earned = 10  # Award XP for first completion
         progress.completed = completed
         progress.score = score
         if completed:
@@ -368,9 +378,22 @@ def save_progress():
             exercise_index=exercise_index,
             completed=completed,
             score=score,
+            xp_earned=10 if completed else 0,
             completed_at=datetime.utcnow() if completed else None
         )
         db.session.add(progress)
     
     db.session.commit()
     return jsonify(progress.to_dict()), 201
+
+@app.route('/api/user/stats')
+@jwt_required()
+@limiter.limit("50 per hour")
+def get_user_stats():
+    user_id = get_jwt_identity()
+    total_xp = db.session.query(db.func.sum(Progress.xp_earned)).filter_by(user_id=int(user_id)).scalar() or 0
+    completed_exercises = Progress.query.filter_by(user_id=int(user_id), completed=True).count()
+    return jsonify({
+        'total_xp': total_xp,
+        'completed_exercises': completed_exercises
+    })
