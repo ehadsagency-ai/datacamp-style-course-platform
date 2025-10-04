@@ -26,10 +26,11 @@ I successfully built and deployed a comprehensive data analysis and orchestratio
 - **Live Site**: https://ehadsagency-ai.github.io/data-analyst-course-app/
 
 ### 4. Technical Stack
-- **Backend**: Python, Flask (with dynamic course API, CORS, caching), SentenceTransformer, Watchdog, WebDAV
+- **Backend**: Python, Flask (with dynamic course API, CORS, caching, JWT auth), SentenceTransformer, Watchdog, WebDAV
 - **Frontend**: React, Vite, Tailwind CSS, Recharts, Monaco Editor
 - **DevOps**: Docker, GitHub Actions, GitHub Pages
 - **Testing**: Unit tests, linting (Flake8), health checks
+- **Security**: JWT authentication for API access
 - **AI/ML**: Embeddings for classification, LocalStorage for progress, Dynamic course generation from notebooks
 
 ### 5. Key Innovations
@@ -40,16 +41,16 @@ I successfully built and deployed a comprehensive data analysis and orchestratio
 - Extensible cloud integrations
 - On-demand course creation from Jupyter notebooks via API
 - Comprehensive course metadata (counts, durations, topics)
-- Production-ready with testing, caching, and monitoring
+- Production-ready with testing, caching, monitoring, and JWT authentication
 
 ### Next Steps for You
 - **Deploy Backend**: Install Heroku CLI, run `heroku create your-app-name`, then `git push heroku master` to deploy the Flask API. Note the live URL (e.g., https://your-app.herokuapp.com).
 - **Update Frontend**: Set VITE_API_BASE=https://your-app.herokuapp.com in course_website_react/.env.production, then push to trigger GitHub Pages rebuild.
-- **Local Testing**: Run `python3 web_orchestrator.py` for backend on port 5000, `npm run dev` in course_website_react/ for frontend with proxy.
+- **Local Testing**: Run `python3 web_orchestrator.py` for backend on port 5000, `npm run dev` in course_website_react/ for frontend with proxy. Login with username: admin, password: password.
 - **Install Dependencies**: `python3 -m pip install -r requirements.txt` for backend, `npm install` for frontend.
 - **Run Tests**: Execute `python3 test_generate_course.py` and `flake8` for quality checks.
 - **Expand Content**: Add more .ipynb files to Level_* dirs, test with local API.
-- **Further Enhancements**: Add Pyodide for browser Python, implement JWT auth in Flask, use WebSockets for streaming updates, add database for user progress.
+- **Further Enhancements**: Add Pyodide for browser Python, use WebSockets for streaming updates, add database for user progress, enhance security.
 
 The system is production-ready and fully documented with best practices implemented (testing, linting, caching, monitoring). All code is committed and deployed. Courses are generated dynamically from 100+ notebooks with comprehensive metadata. Ready for live deployment and further scaling.
 
