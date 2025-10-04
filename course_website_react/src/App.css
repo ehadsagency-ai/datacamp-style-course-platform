@@ -1,0 +1,16 @@
+.pixel-title {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+.pixel-button {
+  font-family: 'Courier New', monospace;
+  border: 2px solid #1E3A8A;
+  border-radius: 0;
+  transition: all 0.2s;
+}
+
+.pixel-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 #1E3A8A;
+}
