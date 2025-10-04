@@ -42,15 +42,18 @@ I successfully built and deployed a comprehensive data analysis and orchestratio
 - On-demand course creation from Jupyter notebooks via API
 - Comprehensive course metadata (counts, durations, topics)
 - Production-ready with testing, caching, monitoring, and JWT authentication
+- Database integration for user management and progress tracking
+- In-browser Python execution with Pyodide
+- WebSocket architecture planned for real-time features
 
 ### Next Steps for You
 - **Deploy Backend**: Install Heroku CLI, run `heroku create your-app-name`, then `git push heroku master` to deploy the Flask API. Note the live URL (e.g., https://your-app.herokuapp.com).
 - **Update Frontend**: Set VITE_API_BASE=https://your-app.herokuapp.com in course_website_react/.env.production, then push to trigger GitHub Pages rebuild.
-- **Local Testing**: Run `python3 web_orchestrator.py` for backend on port 5000, `npm run dev` in course_website_react/ for frontend with proxy. Login with username: admin, password: password.
+- **Local Testing**: Run `python3 web_orchestrator.py` for backend on port 5000, `npm run dev` in course_website_react/ for frontend with proxy. Register/login to test user features.
 - **Install Dependencies**: `python3 -m pip install -r requirements.txt` for backend, `npm install` for frontend.
 - **Run Tests**: Execute `python3 test_generate_course.py` and `flake8` for quality checks.
 - **Expand Content**: Add more .ipynb files to Level_* dirs, test with local API.
-- **Further Enhancements**: Add Pyodide for browser Python, use WebSockets for streaming updates, add database for user progress, enhance security.
+- **Further Enhancements**: Implement WebSocket streaming (see WEBSOCKET_PLAN.md), add collaborative features, enhance UI/UX, implement user roles.
 
 The system is production-ready and fully documented with best practices implemented (testing, linting, caching, monitoring). All code is committed and deployed. Courses are generated dynamically from 100+ notebooks with comprehensive metadata. Ready for live deployment and further scaling.
 
