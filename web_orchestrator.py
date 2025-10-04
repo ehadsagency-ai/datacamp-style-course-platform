@@ -1,20 +1,20 @@
 from flask import Flask, render_template_string, request, jsonify
+from flask_cors import CORS
 import json
 import os
-import shutil
 import shutil
 from sentence_transformers import SentenceTransformer
 from loguru import logger
 from proton_sync import sync_folder as proton_sync_folder
+from generate_course import get_course_data
 
 app = Flask(__name__)
+CORS(app)
 
 USER_ROLE = os.getenv('USER_ROLE', 'admin')  # admin or user
 
 CONFIG_DIR = "/app/.orchestrator/config" if os.getenv('DOCKER') else "/Users/deo_metoyer/Downloads/.orchestrator/config"
 METADATA_FILE = "/app/.orchestrator/downloads_metadata.json" if os.getenv('DOCKER') else "/Users/deo_metoyer/Downloads/.orchestrator/downloads_metadata.json"
-
-USER_ROLE = os.getenv('USER_ROLE', 'admin')  # admin or user
 
 # Load AI model
 model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -52,7 +52,8 @@ def index():
         cat = file.get('category', 'uncategorized')
         if cat not in categories:
             categories[cat] = []
-        categories[cat].append(file['name'])    html = """
+        categories[cat].append(file['name'])
+    html = """
     <!DOCTYPE html>
     <html>
     <head>
@@ -228,7 +229,8 @@ def sync_clouds():
         proton_sync_folder('/Users/deo_metoyer/Downloads/ARCHIVE_PROJET', 'archive_projet')
         synced.append('Proton Drive')
     # Add other clouds here
-    message = f"Clouds synced: {' , '.join(synced)}" if synced else "No clouds configured"    return jsonify({"message": "Clouds synced"})
+    message = f"Clouds synced: {' , '.join(synced)}" if synced else "No clouds configured"
+    return jsonify({"message": message})
 
 @app.route('/save_rules', methods=['POST'])
 def save_rules():
@@ -247,14 +249,13 @@ def health():
     return 'OK'
 
 if __name__ == '__main__':
-    app.run(debug=True)-e 
-@app.route('/health')
-def health():
-    return 'OK'
--e 
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+
 @app.route('/search', methods=['POST'])
 def search():
-    query = request.json.get('query', '')
+    data = request.get_json()
+    query = data.get('query', '') if data else ''
     if not query:
         return jsonify({'results': []})
     query_emb = model.encode(query)
@@ -267,3 +268,11 @@ def search():
                 results.append({'file': item['name'], 'similarity': sim})
     results.sort(key=lambda x: x['similarity'], reverse=True)
     return jsonify({'results': results})
+
+@app.route('/api/courses')
+def get_courses():
+    try:
+        courses = get_course_data()
+        return jsonify(courses)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

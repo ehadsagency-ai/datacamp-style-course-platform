@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import CodeEditor from './CodeEditor.jsx'
 import jsPDF from 'jspdf'
-import courseData from '../../course_data.json'
 
 function App() {
   const [activeTab, setActiveTab] = useState('level1')
@@ -10,11 +9,26 @@ function App() {
   const [hints, setHints] = useState({}) // { 'level1_0': { show: false, current: 0 } }
   const [showSolutions, setShowSolutions] = useState({}) // { 'level1_0': true }
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  const [courseData, setCourseData] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    fetch('/api/courses')
+      .then(res => res.json())
+      .then(data => {
+        setCourseData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error fetching courses:', err);
+        setLoading(false);
+      });
+  }, []);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
@@ -63,12 +77,16 @@ function App() {
     doc.save('certificate.pdf');
   };
 
-  const levels = courseData
+  const levels = courseData || {}
 
   const handleExerciseComplete = (level, exerciseIndex) => {
     const newProgress = { ...progress, [`${level}_${exerciseIndex}`]: true }
     setProgress(newProgress)
     localStorage.setItem('progress', JSON.stringify(newProgress))
+  }
+
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center">Loading courses...</div>
   }
 
   return (

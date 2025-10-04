@@ -1,0 +1,6 @@
+flask
+flask-cors
+sentence-transformers
+loguru
+webdavclient3
+watchdog

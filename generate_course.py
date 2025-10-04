@@ -47,13 +47,13 @@ def generate_course(data_paths):
             for file in os.listdir(path):
                 if file.endswith('.ipynb'):
                     nb_path = os.path.join(path, file)
-                try:
-                    exercise = parse_notebook(nb_path)
-                    exercises.append(exercise)
-                except json.JSONDecodeError as e:
-                    print(f"Invalid JSON in {nb_path}: {e}")
-                except Exception as e:
-                    print(f"Error parsing {nb_path}: {e}")
+                    try:
+                        exercise = parse_notebook(nb_path)
+                        exercises.append(exercise)
+                    except json.JSONDecodeError as e:
+                        print(f"Invalid JSON in {nb_path}: {e}")
+                    except Exception as e:
+                        print(f"Error parsing {nb_path}: {e}")
 
         levels[level_key] = {
             'title': f'Level {level_num}: {path.split("/")[-1].replace("_", " ").replace("Level_", "").replace("_", " ")}',
@@ -63,16 +63,19 @@ def generate_course(data_paths):
 
     return levels
 
-if __name__ == '__main__':
-    data_paths = [
-        '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_1_Python_Fundamentals',
-        '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_2_Data_Processing',
-        '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_3_Data_Visualization',
-        '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_4_Machine_Learning',
-        '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_5_Advanced_Topics'
-    ]
+def get_course_data(data_paths=None):
+    if data_paths is None:
+        data_paths = [
+            '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_1_Python_Fundamentals',
+            '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_2_Data_Processing',
+            '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_3_Data_Visualization',
+            '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_4_Machine_Learning',
+            '/Users/deo_metoyer/Library/Mobile Documents/com~apple~CloudDocs/MY_GOUV/HOME/PSL_MINES/Data_Analyst/Level_5_Advanced_Topics'
+        ]
+    return generate_course(data_paths)
 
-    course = generate_course(data_paths)
+if __name__ == '__main__':
+    course = get_course_data()
 
     with open('course_data.json', 'w', encoding='utf-8') as f:
         json.dump(course, f, indent=2, ensure_ascii=False)
