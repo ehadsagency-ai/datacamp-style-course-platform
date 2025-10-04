@@ -1,6 +1,6 @@
 from flask import Flask, render_template_string, request, jsonify
 from flask_cors import CORS
-from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
 import json
 import os
 import shutil
@@ -8,11 +8,20 @@ from sentence_transformers import SentenceTransformer
 from loguru import logger
 from proton_sync import sync_folder as proton_sync_folder
 from generate_course import get_course_data
+from models import db, User, Progress
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
-app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'your-secret-key')
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'your-secret-key-change-in-production')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///courses.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
 jwt = JWTManager(app)
+
+with app.app_context():
+    db.create_all()
 
 # Simple in-memory cache
 course_cache = None
@@ -277,15 +286,42 @@ def search():
     results.sort(key=lambda x: x['similarity'], reverse=True)
     return jsonify({'results': results})
 
+@app.route('/api/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+    
+    if not username or not email or not password:
+        return jsonify({"error": "Missing required fields"}), 400
+    
+    if User.query.filter_by(username=username).first():
+        return jsonify({"error": "Username already exists"}), 409
+    
+    if User.query.filter_by(email=email).first():
+        return jsonify({"error": "Email already exists"}), 409
+    
+    user = User(username=username, email=email)
+    user.set_password(password)
+    db.session.add(user)
+    db.session.commit()
+    
+    return jsonify({"message": "User created successfully", "user": user.to_dict()}), 201
+
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-    # Simple auth - replace with real logic
-    if username == 'admin' and password == 'password':
-        access_token = create_access_token(identity=username)
-        return jsonify(access_token=access_token)
+    
+    user = User.query.filter_by(username=username).first()
+    if user and user.check_password(password):
+        user.last_login = datetime.utcnow()
+        db.session.commit()
+        access_token = create_access_token(identity=str(user.id))
+        return jsonify(access_token=access_token, user=user.to_dict())
+    
     return jsonify({"error": "Invalid credentials"}), 401
 
 @app.route('/api/courses')
@@ -301,3 +337,40 @@ def get_courses():
         except Exception as e:
             return jsonify({"error": str(e)}), 500
     return jsonify(course_cache)
+
+@app.route('/api/progress', methods=['GET'])
+@jwt_required()
+def get_progress():
+    user_id = get_jwt_identity()
+    progress_items = Progress.query.filter_by(user_id=int(user_id)).all()
+    return jsonify([p.to_dict() for p in progress_items])
+
+@app.route('/api/progress', methods=['POST'])
+@jwt_required()
+def save_progress():
+    user_id = get_jwt_identity()
+    data = request.get_json()
+    level = data.get('level')
+    exercise_index = data.get('exercise_index')
+    completed = data.get('completed', False)
+    score = data.get('score')
+    
+    progress = Progress.query.filter_by(user_id=int(user_id), level=level, exercise_index=exercise_index).first()
+    if progress:
+        progress.completed = completed
+        progress.score = score
+        if completed:
+            progress.completed_at = datetime.utcnow()
+    else:
+        progress = Progress(
+            user_id=int(user_id),
+            level=level,
+            exercise_index=exercise_index,
+            completed=completed,
+            score=score,
+            completed_at=datetime.utcnow() if completed else None
+        )
+        db.session.add(progress)
+    
+    db.session.commit()
+    return jsonify(progress.to_dict()), 201
