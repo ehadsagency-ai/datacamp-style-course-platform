@@ -43,9 +43,11 @@ def generate_course(data_paths):
         level_key = f'level{level_num}'
         exercises = []
 
+        notebook_files = []
         if os.path.exists(path):
             for file in os.listdir(path):
                 if file.endswith('.ipynb'):
+                    notebook_files.append(file)
                     nb_path = os.path.join(path, file)
                     try:
                         exercise = parse_notebook(nb_path)
@@ -58,6 +60,10 @@ def generate_course(data_paths):
         levels[level_key] = {
             'title': f'Level {level_num}: {path.split("/")[-1].replace("_", " ").replace("Level_", "").replace("_", " ")}',
             'content': f'Advanced content from {path.split("/")[-1]}',
+            'notebook_count': len(notebook_files),
+            'key_notebooks': notebook_files[:5] if notebook_files else [],
+            'duration': f'{len(notebook_files) * 2} hours' if notebook_files else '0 hours',
+            'topics': [f'Advanced {path.split("/")[-1].replace("_", " ").replace("Level_", "").replace("_", " ")} concepts' for _ in notebook_files[:3]] if notebook_files else [],
             'exercises': exercises
         }
 

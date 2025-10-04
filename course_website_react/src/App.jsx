@@ -18,7 +18,8 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    fetch('/api/courses')
+    const apiBase = import.meta.env.VITE_API_BASE || '/api';
+    fetch(`${apiBase}/courses`)
       .then(res => res.json())
       .then(data => {
         setCourseData(data);
@@ -139,8 +140,12 @@ function App() {
       </div>
       
        <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg" style={{ backgroundColor: 'var(--card-bg)' }}>
-         <h2 className="text-2xl text-code-dark mb-4">{levels[activeTab].title}</h2>
-         <p className="text-code-light mb-4">{levels[activeTab].content}</p>
+          <h2 className="text-2xl text-code-dark mb-4">{levels[activeTab].title}</h2>
+          <p className="text-code-light mb-4">{levels[activeTab].content}</p>
+          <p className="text-code-light mb-2"><strong>Notebook Count:</strong> {levels[activeTab].notebook_count}</p>
+          <p className="text-code-light mb-2"><strong>Duration:</strong> {levels[activeTab].duration}</p>
+          <p className="text-code-light mb-2"><strong>Topics:</strong> {levels[activeTab].topics?.join(', ') || 'N/A'}</p>
+          <p className="text-code-light mb-4"><strong>Key Notebooks:</strong> {levels[activeTab].key_notebooks?.join(', ') || 'N/A'}</p>
          {levels[activeTab].videoUrl && (
            <div className="mb-4">
              <iframe

@@ -2,6 +2,20 @@
   "level1": {
     "title": "Level 1: Level 1 Python Fundamentals",
     "content": "Advanced content from Level_1_Python_Fundamentals",
+    "notebook_count": 17,
+    "key_notebooks": [
+      "DA101_#.EXAMEN - Corrigé.ipynb",
+      "DA101_#4.Fonctions.ipynb",
+      "DA101_#5.Classes et modules.ipynb",
+      "DA101_#9.Numpy_Excice Pratique.ipynb",
+      "03_challenge 1.25.07 PM.ipynb"
+    ],
+    "duration": "34 hours",
+    "topics": [
+      "Advanced Level 1 Python Fundamentals concepts",
+      "Advanced Level 1 Python Fundamentals concepts",
+      "Advanced Level 1 Python Fundamentals concepts"
+    ],
     "exercises": [
       {
         "title": "DA101 .EXAMEN - Corrigé",
@@ -191,6 +205,20 @@
   "level2": {
     "title": "Level 2: Level 2 Data Processing",
     "content": "Advanced content from Level_2_Data_Processing",
+    "notebook_count": 14,
+    "key_notebooks": [
+      "DA104_#3.Analyse des liaisons entre les variables d'un jeu de données.ipynb",
+      "DA104_#1.Data Quality.ipynb",
+      "DA104_#2.Analyse descriptive des variables qualitatives d'un jeu de données .ipynb",
+      "DA105_#4.Données manquantes.ipynb",
+      "DA105_#6.Data Cleaning.ipynb"
+    ],
+    "duration": "28 hours",
+    "topics": [
+      "Advanced Level 2 Data Processing concepts",
+      "Advanced Level 2 Data Processing concepts",
+      "Advanced Level 2 Data Processing concepts"
+    ],
     "exercises": [
       {
         "title": "DA104 3.Analyse des liaisons entre les variables d'un jeu de données",
@@ -343,6 +371,20 @@
   "level3": {
     "title": "Level 3: Level 3 Data Visualization",
     "content": "Advanced content from Level_3_Data_Visualization",
+    "notebook_count": 35,
+    "key_notebooks": [
+      "DA113_#.6.Boked Créer des cartes géographiques.ipynb",
+      "DA114_#.2.Matplotlib Ticks labels et légendes.ipynb",
+      "DA113_#.2.Bokeh.ipynb",
+      "DA112_#4.Seaborn Analyse multivariée.ipynb",
+      "DA114_#.8.Matplotlib Graphique interactifd et axes 3D.ipynb"
+    ],
+    "duration": "70 hours",
+    "topics": [
+      "Advanced Level 3 Data Visualization concepts",
+      "Advanced Level 3 Data Visualization concepts",
+      "Advanced Level 3 Data Visualization concepts"
+    ],
     "exercises": [
       {
         "title": "DA113 .6.Boked Créer des cartes géographiques",
@@ -724,6 +766,20 @@
   "level4": {
     "title": "Level 4: Level 4 Machine Learning",
     "content": "Advanced content from Level_4_Machine_Learning",
+    "notebook_count": 21,
+    "key_notebooks": [
+      "DA121_#.4.Scikit-learn Méthode des k plus proches voisins.ipynb",
+      "DA120_#.2.Scikit-learn API_Scikit-learn.ipynb",
+      "DA120_#.Final = EXAMEN_6.ipynb",
+      "DA121_#.3.Scikit-learn - Classification de vins à l'aide des Support Vector Machine (SVM).ipynb",
+      "DA120_#.5.Scikit-learn Etude de cas - problème de classification.ipynb"
+    ],
+    "duration": "42 hours",
+    "topics": [
+      "Advanced Level 4 Machine Learning concepts",
+      "Advanced Level 4 Machine Learning concepts",
+      "Advanced Level 4 Machine Learning concepts"
+    ],
     "exercises": [
       {
         "title": "DA121 .4.Scikit-learn Méthode des k plus proches voisins",
@@ -955,6 +1011,20 @@
   "level5": {
     "title": "Level 5: Level 5 Advanced Topics",
     "content": "Advanced content from Level_5_Advanced_Topics",
+    "notebook_count": 16,
+    "key_notebooks": [
+      "DA141_#2.Pyspark_dataprocessing.ipynb",
+      "DA141_#3.Pyspark_dataframe.ipynb",
+      "DA142_#2.SQL_requêtes.ipynb",
+      "DA141_#1.Pyspark_introduction.ipynb",
+      "DA133_#3.Webscraping Collecter les données.ipynb"
+    ],
+    "duration": "32 hours",
+    "topics": [
+      "Advanced Level 5 Advanced Topics concepts",
+      "Advanced Level 5 Advanced Topics concepts",
+      "Advanced Level 5 Advanced Topics concepts"
+    ],
     "exercises": [
       {
         "title": "DA141 2.Pyspark dataprocessing",
