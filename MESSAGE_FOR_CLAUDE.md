@@ -39,10 +39,12 @@ I successfully built and deployed a comprehensive data analysis and orchestratio
 - On-demand course creation from Jupyter notebooks via API
 
 ### Next Steps for You
-- **Connect All Components**: Deploy the Flask backend (web_orchestrator.py) to a server (e.g., Heroku, Vercel, or AWS) to make the /api/courses endpoint accessible. Update the React app's API URL from localhost to the live backend URL. For local development, run `python3 web_orchestrator.py` and `npm run dev` in course_website_react/.
-- **Install Dependencies**: Run `pip3 install flask sentence-transformers loguru webdavclient3 watchdog` for the backend, and `npm install` in course_website_react/.
-- **Test Dynamic Generation**: Access the React app; it should now load courses dynamically from the API. Add more Jupyter notebooks to the Level_* directories to expand content.
-- **Further Enhancements**: Integrate Pyodide for full in-browser Python execution, add user authentication, implement streaming for real-time updates, expand to multi-cloud sync, add video content and advanced visualizations.
+- **Deploy Backend**: Install Heroku CLI, run `heroku create your-app-name`, then `git push heroku master` to deploy the Flask API. Note the live URL (e.g., https://your-app.herokuapp.com).
+- **Update Frontend**: Set VITE_API_BASE=https://your-app.herokuapp.com in course_website_react/.env.production, then push to trigger GitHub Pages rebuild.
+- **Local Testing**: Run `python3 web_orchestrator.py` for backend on port 5000, `npm run dev` in course_website_react/ for frontend with proxy.
+- **Install Dependencies**: `python3 -m pip install -r requirements.txt` for backend, `npm install` for frontend.
+- **Expand Content**: Add more .ipynb files to Level_* dirs, test with local API.
+- **Further Enhancements**: Add Pyodide for browser Python, implement JWT auth in Flask, use WebSockets for streaming updates.
 
 The system is production-ready and fully documented. All code is committed and deployed. Courses are now generated dynamically for real-time or streaming-like updates. You can continue development from here!
 
