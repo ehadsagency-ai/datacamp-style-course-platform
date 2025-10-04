@@ -11,6 +11,9 @@ function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
   const [courseData, setCourseData] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [token, setToken] = useState(localStorage.getItem('token') || null)
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -18,21 +21,45 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE || '/api';
-    fetch(`${apiBase}/courses`)
-      .then(res => res.json())
-      .then(data => {
-        setCourseData(data);
-        setLoading(false);
+    if (token) {
+      const apiBase = import.meta.env.VITE_API_BASE || '/api';
+      fetch(`${apiBase}/courses`, {
+        headers: { 'Authorization': `Bearer ${token}` }
       })
-      .catch(err => {
-        console.error('Error fetching courses:', err);
-        setLoading(false);
-      });
-  }, []);
+        .then(res => res.json())
+        .then(data => {
+          setCourseData(data);
+          setLoading(false);
+        })
+        .catch(err => {
+          console.error('Error fetching courses:', err);
+          setLoading(false);
+        });
+    } else {
+      setLoading(false);
+    }
+  }, [token]);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  const handleLogin = () => {
+    const apiBase = import.meta.env.VITE_API_BASE || '/api';
+    fetch(`${apiBase}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.access_token) {
+          setToken(data.access_token);
+          localStorage.setItem('token', data.access_token);
+        } else {
+          alert('Login failed');
+        }
+      });
   };
 
   const exportProgress = () => {
@@ -88,6 +115,31 @@ function App() {
 
   if (loading) {
     return <div className="min-h-screen flex items-center justify-center">Loading courses...</div>
+  }
+
+  if (!token) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)' }}>
+        <div className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: 'var(--card-bg)' }}>
+          <h2 className="text-2xl mb-4">Login</h2>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="block w-full mb-2 p-2 border"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="block w-full mb-4 p-2 border"
+          />
+          <button onClick={handleLogin} className="pixel-button px-4 py-2 bg-blue-500 text-white">Login</button>
+        </div>
+      </div>
+    );
   }
 
   return (

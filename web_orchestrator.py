@@ -1,5 +1,6 @@
 from flask import Flask, render_template_string, request, jsonify
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 import json
 import os
 import shutil
@@ -10,6 +11,8 @@ from generate_course import get_course_data
 
 app = Flask(__name__)
 CORS(app)
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'your-secret-key')
+jwt = JWTManager(app)
 
 # Simple in-memory cache
 course_cache = None
@@ -274,7 +277,19 @@ def search():
     results.sort(key=lambda x: x['similarity'], reverse=True)
     return jsonify({'results': results})
 
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+    # Simple auth - replace with real logic
+    if username == 'admin' and password == 'password':
+        access_token = create_access_token(identity=username)
+        return jsonify(access_token=access_token)
+    return jsonify({"error": "Invalid credentials"}), 401
+
 @app.route('/api/courses')
+@jwt_required()
 def get_courses():
     global course_cache, cache_timestamp
     import time
