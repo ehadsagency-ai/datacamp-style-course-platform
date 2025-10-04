@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import CodeEditor from './CodeEditor.jsx'
 import jsPDF from 'jspdf'
+import courseDataStatic from '../../course_data.json'
 
 function App() {
   const [activeTab, setActiveTab] = useState('level1')
@@ -27,10 +28,10 @@ function App() {
       Promise.all([
         fetch(`${apiBase}/courses`, {
           headers: { 'Authorization': `Bearer ${token}` }
-        }).then(res => res.json()),
+        }).then(res => res.ok ? res.json() : Promise.reject('API not available')),
         fetch(`${apiBase}/user/stats`, {
           headers: { 'Authorization': `Bearer ${token}` }
-        }).then(res => res.json())
+        }).then(res => res.ok ? res.json() : Promise.reject('API not available'))
       ])
         .then(([courses, stats]) => {
           setCourseData(courses);
@@ -38,10 +39,15 @@ function App() {
           setLoading(false);
         })
         .catch(err => {
-          console.error('Error fetching data:', err);
+          console.error('API not available, using static data:', err);
+          setCourseData(courseDataStatic);
+          setUserStats({ total_xp: 0, completed_exercises: 0 });
           setLoading(false);
         });
     } else {
+      // No token, use static data
+      setCourseData(courseDataStatic);
+      setUserStats({ total_xp: 0, completed_exercises: 0 });
       setLoading(false);
     }
   }, [token]);
