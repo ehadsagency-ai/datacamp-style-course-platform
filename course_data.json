@@ -1,0 +1,1125 @@
+{
+  "level1": {
+    "title": "Level 1: Level 1 Python Fundamentals",
+    "content": "Advanced content from Level_1_Python_Fundamentals",
+    "exercises": [
+      {
+        "title": "DA101 .EXAMEN - Corrigé",
+        "description": "Learn from notebook: DA101 .EXAMEN - Corrigé",
+        "initialCode": "import pandas as pd\n\ndf = pd.read_csv('heart_disease.csv', sep=';', index_col=0)\n\ndf.head(5)\n#df.info()\n#df.describe()",
+        "hints": [
+          "Examen DA 101\n\nIntroduction à Python pour la data-science \n\nConsignes \nL'exercice est composé de plusieurs questions, faites-les dans l'ordre et faites attention à respecter le nom des variables. La majorité des questions sont indépendantes.\nEvitez de rester bloqué plus de 5 minutes sur la même question. \nUn code clair et commenté si nécessaire, sera apprecié.\nN'hésitez pas à contacter l'équipe DataScientest si vous rencontrez des problèmes sur help@datascientest.com\nExploration du Jeu de données\nCette évaluation porte sur le jeu de données \"heart_disease.csv\". Ce dernier contient des informations et des résultats médicaux concernant un peu plus de 300 patients. La variable target indique à la présence (1) ou non (0) d'une maladie cardiaque chez un patient.\nLe principal objectif de l'examen est d'utiliser des méthodes d'exploration, de manipulation et de préparation de données dans l'optique d'entraîner un algorithme de classification pour prédire la présence ou non d'une maladie cardiaque chez un patient.\nLire le fichier \"heart_disease.csv\" dans un DataFrame appelé df en précisant que la première colonne contient les indices.\nAfficher un aperçu et une première description des variables du jeu de données."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA101 4.Fonctions",
+        "description": "Learn from notebook: DA101 4.Fonctions",
+        "initialCode": "Python pour la Data Science\nFonctions\n1. Les Fonctions\nUne fonction en Python est un bloc d'instructions réutilisable qui sert à effectuer une opération bien précise.\nNous avons déjà vu des exemples de fonctions prédéfinies dans Python comme :\nLa fonction print : Permet d'afficher un objet.\nLa fonction range : Permet de créer une suite de nombre entiers.\nNous ne connaissons pas le code exacte à l'intérieur de ces fonctions. Pourtant nous sommes capables de prévoir leur résultat. Ceci est dû au fait que leur résultat dépend uniquement des paramètres (ou arguments) qui leur sont donnés en entrée.\nLa syntaxe pour la définition d’une fonction est la suivante :\n\ndef ma_fonction(parametre):\n    # Bloc d'instructions\n    ...\n    ...\n    ...\n    # Le resultat de la fonction est donné par la variable sortie\n    return sortie\nLe mot-clé return définit le résultat de la fonction. Ce mot-clé fixe aussi la fin de l'exécution de la fonction. Tout ce qui suit dans la définition de la fonction ne sera pas exécuté.\n\n# On définit une fonction qui détermine si un nombre est pair\ndef is_even(number):\n    # Est-ce que le nombre est pair ?\n    if number%2 == 0:\n        return True\n    else:\n        return False\n\nCette fonction prend en argument un nombre qui sera stocké dans une variable provisoire nommée number. Lorsque la fonction termine son exécution, la variable number est détruite.\nUne fois qu'une fonction est définie, nous pouvons l'évaluer en précisant les valeurs de ses arguments :\nprint(is_even(number = 3))\n>>> False\n\nprint(is_even(number = 100))\n>>> True\n\nprint(is_even(number = -2))\n>>> True\nIl est possible d'évaluer une fonction sans spécifier le nom de ses arguments :\nprint(is_even(-4))\n>>> True\n(a) Implémenter une fonction nommée double qui prend en argument un nombre et renvoie son double.\n(b) Utiliser cette fonction pour calculer le double de 4.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "def factoriel (n):\n    if n == 0:\n        return 1\n    else:\n        return n * factoriel(n-1)\nprint(factoriel(n=5))\n"
+      },
+      {
+        "title": "DA101 5.Classes et modules",
+        "description": "Learn from notebook: DA101 5.Classes et modules",
+        "initialCode": "<img src=\"https://assets-datascientest.s3-eu-west-1.amazonaws.com/train/logo_datascientest.png\" style=\"height:750px\">\n\nPython pour la Data Science<\nClasses et modules \n\n\n## Introduction\n\n> En Python et dans de nombreux autres langages de programmation, la **programmation orientée objet** consiste à créer des **classes** d’objets qui contiennent des informations spécifiques et des outils adaptés à leur manipulation.\n>\n> **Tous les outils** que nous utilisons pour faire de la Data Science et que vous verrez plus tard (Arrays Numpy, DataFrames pandas, Modèles de scikit-learn, Figures matplotlib,...) sont construits de cette manière. <br>\n> Comprendre les mécaniques des objets Python et savoir les utiliser est essentiel pour  exploiter toutes les fonctionnalités de ces outils.\n\n## 1. Les Classes\n\n> Une classe d'objets contient 3 types d'éléments **fondamentaux** :\n>> * Un **constructeur** : une fonction qui permet d'**initialiser** un objet de la classe.\n>>\n>>\n>> * Des **attributs** : Des variables **spécifiques** à l'objet créé permettant de définir ses **propriétés**. \n>>\n>>\n>> * Des **méthodes** : Des fonctions spécifiques à la classe qui permettent d'interagir avec un objet.\n>\n> Pour comprendre les classes d'objets, faisons une analogie avec une voiture.\n>\n> Les voitures sont une classe d'objets désignant des véhicules à roues motorisés et destinés au transport terrestre.\n>\n> On suppose que le **constructeur** de la classe des voitures est une **usine** qui les produit. <br>\n> À partir des **attributs** souhaités pour la voiture comme la **couleur**, le **modèle** ou la **cylindrée**, l'usine doit être capable de produire une voiture qui correspond aux caractéristiques données. Ainsi, l'usine est analogue à une **fonction** qui prend en **argument** les **attributs** de la voiture et **retourne** la voiture **construite** et prête à l'emploi.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA101 9.Numpy Excice Pratique",
+        "description": "Learn from notebook: DA101 9.Numpy Excice Pratique",
+        "initialCode": "Python pour la Data Science\nMise en pratique \nContexte\nUne entreprise, opérant dans le monde du football, souhaite analyser les statistiques du championnat anglais de Premier League. Un prestataire lui a transmis les informations sur certains matchs du championnat anglais. Pour diverses raisons techniques et pour simplifier l'exercice, nous ne disposons des informations que pour une équipe sur un match.\nIl vous est fortement recommandé de vous aider des notebooks précédents pour répondre aux différentes questions de l'exercice. Beaucoup de notions comme les listes, les dictionnaires, les tuples, les boucles ou encore les fonctions sont à connaître pour répondre aux questions.\nExécuter la cellule suivante pour récupérer les données obtenues sur les matchs.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "03 challenge 1.25.07 PM",
+        "description": "Learn from notebook: 03 challenge 1.25.07 PM",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA101 8.Manipulation d'un NumPy Array",
+        "description": "Learn from notebook: DA101 8.Manipulation d'un NumPy Array",
+        "initialCode": "NumPy pour la Data Science \nManipulation d'arrays Numpy \n1. Indexation Conditionnelle d'un array Numpy\nDans le notebook précédent, nous avons vu comment indexer un array à l'aide du slicing sur plusieurs dimensions :\n\n\n\nUne technique plus avancée consiste à indexer les éléments d'un array à l'aide d'une condition :\n# Création d'un array de dimension 3x3\nX = np.array([[-1, 0, 30],\n              [-2, 3, -5],\n              [5, -5, 10]])\n\n# On assigne à tous les éléments négatifs la valeur 0\nX[X<0] = 0\n\n# Affichage de la matrice modifiée\nprint(X)\n>>> [[ 0  0 30]\n>>>  [ 0  3  0]\n>>>  [ 5  0 10]]\nCeci permet d'accéder et modifier facilement des éléments qui respectent une condition spécifique.\nDe plus, il est possible d'indexer un array à l'aide d'une condition évaluée sur un autre array :\n\n# Création de 2 arrays à 8 éléments\nX = np.array([3, -7, -10, 3, 6, 5, 2, 9])\n\ny = np.array([0, 1, 1, 1, 0, 1, 0, 0])\n\n# On assigne la valeur -1 aux éléments de X pour lesquels la valeur de y à l'indice correspondant vaut 1\nX[y == 1] = -1\n\n# Affichage de X\nprint(X)\n>>> [3 -1 -1 -1 6 -1 2 9]\n\n# Affichage des éléments de X pour lesquels la valeur de y à l'indice correspondant vaut 0\nprint(X[y == 0])\n>>> [3 6 2 9]\nNous disposons de données d'un supermarché américain qui se prépare pour le Black Friday), une journée où les commerces américains proposent de très grandes réductions pour finir leurs saisons.\nCes données sont distribuées sur 3 arrays :\nitems : Le nom des objets qui seront en promotion.\nquantities : Le stock disponible pour chaque objet en promotion.\ndiscounts : La réduction de prix de chaque objet. Les objets peuvent avoir une réduction de 25, 50, 75 ou 90 pourcents.\n(a) Lancer la cellule suivante pour instancier les arrays contenant les données du supermarché.",
+        "hints": [
+          "Pour transformer une image en couleur en une image en échelle de gris, il suffit, pour chaque pixel de l'image, de faire la moyenne des intensités lumineuses des canaux de couleur.\nNous allons devoir itérer sur chaque pixel de l'image, mais pour les arrays numpy à plusieurs dimensions, les itérations doivent se faire dimension par dimension :\nCréation d'un array de dimensions 32x32x3   (lignes x colonnes x canaux)\nX = np.zeros(shape = (32, 32, 3))\n\nItération sur la première dimension de l'array (les lignes)\nfor ligne in X:\n    Itération sur la deuxième dimension de l'array (les pixels de la ligne)\n    for pixel in ligne:\n        Itération sur la troisième dimension de l'array (les canaux du pixel)\n        for canal in pixel:\n            ...\n            ...\nUn pixel de l'image est donc un array à 3 éléments correspondant aux intensités lumineuses des canaux. \nNous pourrons faire la moyenne de ces trois éléments pour obtenir l'intensité lumineuse du pixel en échelle de gris.\n(c) Définir une fonction rgb_to_gray qui prendra en argument un array X. Dans cette fonction, vous devrez :\nInstancier un array de zéros nommé X_gray avec le même nombre de lignes et colonnes que X mais avec un seul canal. Cet array contiendra les intensités lumineuses des pixels en échelle de gris.\nItérer sur les pixels de l'image et stocker la moyenne des intensités des canaux du pixel dans X_gray à l'indice correspondant. Vous pourrez utiliser le générateur enumerate dans vos boucles for pour obtenir les indices des pixels.\nVous pourrez tester votre fonction sur img pour vérifier qu'elle fonctionne, mais faites attention à ne pas l'écraser."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "02 first model 1.25.07 PM",
+        "description": "Learn from notebook: 02 first model 1.25.07 PM",
+        "initialCode": "import pandas as pd\nimport numpy as np  \nimport matplotlib.pyplot as plt\nimport seaborn as sns\n%matplotlib inline\nimport warnings\n\n# Read in the data\n\ndata = pd.read_csv('https://assets-datascientest.s3.eu-west-1.amazonaws.com/challenge-sorbonne-march-2023/train_set.csv')\nprint(data.head())\n\ndata.info()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "test = pd.read_csv('test_set.csv') # Sur lequel appliquer le même pre processing \n\ndef export_csv(X_test, model):\n    import pandas as pd\n    y_pred = pd.DataFrame(model.predict(X_test), columns=[\"y_pred\"])\n    return y_pred.to_csv(\"y_pred.csv\", index=False)"
+      },
+      {
+        "title": "DA101 6.Mise en pratique",
+        "description": "Learn from notebook: DA101 6.Mise en pratique",
+        "initialCode": "Python pour la Data Science\nMise en pratique \nContexte\nUne entreprise, opérant dans le monde du football, souhaite analyser les statistiques du championnat anglais de Premier League. Un prestataire lui a transmis les informations sur certains matchs du championnat anglais. Pour diverses raisons techniques et pour simplifier l'exercice, nous ne disposons des informations que pour une équipe sur un match.\nIl vous est fortement recommandé de vous aider des notebooks précédents pour répondre aux différentes questions de l'exercice. Beaucoup de notions comme les listes, les dictionnaires, les tuples, les boucles ou encore les fonctions sont à connaître pour répondre aux questions.\nExécuter la cellule suivante pour récupérer les données obtenues sur les matchs.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "def worst_player(id_match):\n    \n    #Récupérer les notes des joueurs pour le match demandé\n    match_stats = ratings_player[id_match]\n    minimum = 10\n    \n    #Parcourir la liste de tuples contenat nom et note du joueur\n    for i in match_stats : \n        #Vérifier que la note est différente de 0\n        if float(i[1]) < minimum and float(i[1]) != 0 :\n            minimum = float(i[1])\n            worst_player_name = i[0]\n    \n    return worst_player_name\n\nworst_player(1190496)\n\n'Andy King'"
+      },
+      {
+        "title": "DA101 10.Mise en pratique et manipulation avancée  ",
+        "description": "Learn from notebook: DA101 10.Mise en pratique et manipulation avancée  ",
+        "initialCode": "NumPy pour la Data Science \nMise en pratique et manipulation avancée \nContexte\nUn supermarché souhaite extraire des informations des données dont elle dispose. Ces données sont stockées dans différents arrays sur lesquels vous allez travailler pour extraire des informations de base utiles à l'entreprise comme le chiffre d'affaires réalisé par l'entreprise.\nVous disposez de 3 tableaux items, quantities et unit_price renseignant respectivement le nom des produits vendus, les quantités vendues et les prix de vente à l'unité. Ils ont chacun 25 éléments et les prix donnés sont en euro.\nExécuter la cellule suivante.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# (p) En vous aidant du tableau promotions, déterminer et afficher le nouveau chiffre d’affaires réalisé par le magasin.\npromotions = np.array([0.75,0.75,1,0.5,1,0.9,0.8,0.75,1,1,1,1,0.6,0.7,0.5,\n                       0.8,1,1,1,1,0.9,0.75,1,1,1])\n\nnew_ca_per_product = quantities * unit_price * promotions\nprint(new_ca_per_product.sum())\n"
+      },
+      {
+        "title": "DA101 11.Data cleaning - Nettoyage des Données et Gestion des NAs ",
+        "description": "Learn from notebook: DA101 11.Data cleaning - Nettoyage des Données et Gestion des NAs ",
+        "initialCode": "Pandas pour la Data Science\nData cleaning : Nettoyage des Données et Gestion des NAs \nIntroduction\nLe nettoyage des données et la bonne gestion des valeurs manquantes (appelées NaN ou NA) sont deux étapes essentielles avant toute analyse sur une base de données.\nL'objectif de ce notebook est de détailler chacune de ces deux étapes afin d'obtenir un DataFrame propre et facilement exploitable. \nEn effet, les bases de données présentent très souvent ce genre de problèmes.\nPour cela, nous allons nous servir du DataFrame transactions importé dans l'exercice précédent.\n(a) Importer le module pandas sous le nom pd et charger le fichier \"transactions.csv\" dans le DataFrame transactions. Les données sont séparées par des virgules dans le ficher CSV et la colonne contenant les identifiants est 'transaction_id'.\n(b) Afficher les 10 premières lignes de transactions.csv avec la méthode head.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "Conclusion et récap\nDans ce chapitre nous avons vu les méthodes essentielles du module pandas afin de nettoyer un dataset et gérer les valeurs manquantes (NaN).\nCette étape de préparation d'un dataset est toujours la première étape d'un projet data.\nConcernant le nettoyage des données, nous avons ainsi appris à :\nRepérer et supprimer les doublons d'un DataFrame grâce aux méthodes duplicated et drop_duplicates.\nModifier les éléments d'un DataFrame et leur type à l'aide des méthodes replace, rename et astype.\nAppliquer une fonction à un DataFrame avec la méthode apply et la clause lambda.\nConcernant la gestion des valeurs manquantes, nous avons appris à :\nLes détecter grâce à la méthode isna suivie des méthodes any et sum.\nLes remplacer à l'aide de la méthode fillna et des méthodes statistiques.\nLes supprimer grâce à la méthode dropna.\nDans le notebook suivant, vous verrez d'autres manipulations de DataFrame pour une exploration des données plus avancées.\n"
+      },
+      {
+        "title": "DA101 7.Introduction aux arrays Numpy",
+        "description": "Learn from notebook: DA101 7.Introduction aux arrays Numpy",
+        "initialCode": "NumPy pour la Data Science \nIntroduction aux arrays Numpy \nIntroduction\nnumpy (pour Numerical Python) est une bibliothèque numérique très avancée pour la manipulation de larges tableaux multidimensionnels et de routines mathématiques de haut niveau (algèbre linéaire, statistiques, fonctions mathématiques complexes etc...).\nLa classe d'objets que nous allons principalement manipuler est la classe array de numpy.\nCes arrays correspondent à des matrices N-dimensionnelles qui pourront contenir des données très diverses comme des données tabulaires, des séries temporelles ou des images.\nL'intérêt du module numpy repose sur la possibilité d'appliquer des opérations sur ces arrays de manière très efficace, c'est-à-dire que le nombre de lignes de code nécessaires et le temps de calcul pour effectuer ces opérations seront très réduits par rapport à une syntaxe Python traditionnelle.\n1. Création d'un array numpy\nContrairement aux classes normales que vous verrez dans votre formation, un array numpy peut être instancié avec de nombreux constructeurs différents.\nL'argument de ces constructeurs est en général un tuple contenant les dimensions de la matrice souhaitées. \nCe tuple de dimensions est ce qu'on appelle la shape d'un array :\n# Import du module numpy sous l'alias 'np'\nimport numpy as np\n\n# Création d'une matrice de dimensions 5x10 remplie de zéros\nX = np.zeros(shape = (5, 10))\n\n# Création d'une matrice à 3 dimensions 3x10x10 remplie de uns\nX = np.ones(shape = (3, 10, 10))\nIl est aussi possible de créer un array à partir d'une liste à l'aide du constructeur np.array :\n# Création d'un array à partir d'une liste définie en compréhension\nX = np.array([2*i for i in range(10)])    # 0, 2, 4, 6, ..., 18\n\n# Création d'un array à partir d'une liste de listes\nX = np.array([[1, 3, 3],\n              [3, 3, 1],\n              [1, 2, 0]])\nCes trois constructeurs ne sont que des exemples. Nous verrons d'autres constructeurs dans la suite.\n2. Indexation d'un array numpy¶\nContrairement aux listes, un array numpy est multidimensionnel. \nL'indexation doit se faire en indiquant l'index auquel nous voulons accéder sur chaque dimension :\n# Création d'une matrice de dimensions 10x10 remplie de uns\nX = np.ones(shape = (10, 10))\n\n# affichage de l'élément à l'index (4, 3)\nprint(X[4, 3])\n\n> # assignation de la valeur -1 à l'élément d'index (1, 5)\nX[1, 5] = -1\nComme pour tous les autres objets indexables de Python, l'index de départ d'un axe est 0.\n\n\n\nComme pour les listes, il est possible d'indexer un array grâce au slicing :\n\n\n\nIl est possible de slicer sur chaque dimension d'un array. \nDans l'exemple suivant, nous allons extraire un sous-array de X à l'aide du slicing : \n\n\nLes exemples précédents illustrent l'indexation d'un array à 2 dimensions, mais ce type d'indexation est généralisable sur les arrays à N dimensions. \nIl est aussi possible d'utiliser l'indexation négative comme pour les listes.\n(a) À l'aide des constructeurs et du slicing des arrays, créer et afficher la matrice diagonale par blocs suivante :\n \n \n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "01 introduction 1.25.07 PM",
+        "description": "Learn from notebook: 01 introduction 1.25.07 PM",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA101 12.Data Processing",
+        "description": "Learn from notebook: DA101 12.Data Processing",
+        "initialCode": "\nPandas pour la Data Science\nData processing \nLe preprocessing de données peut se résumer à l'utilisation de 4 opérations essentielles : filtrer, unir, ordonner et grouper.\nSi la structure DataFrame s’est imposée dans la manipulation de données, c’est parce qu’il suffit souvent de répéter ou combiner ces quatre opérations.\nDans cet exercice, vous apprendrez à utiliser ces 4 méthodes de preprocessing des données.\nAvant de commencer ce notebook, lancer la cellule suivante afin de récupérer le travail effectué dans les notebooks précédents.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "Conclusion et recap\nDans ce notebook vous avez appris à :\nFiltrer les lignes d'un DataFrame avec plusieurs conditions grâce aux opérateurs binaires &, | et - :\n# Année égale à 1979 et surface supérieure à 60\ndf[(df['annee'] == 1979) & (df['surface'] > 60)]\n\n# Année supérieure à 1900 ou quartier égal à 'Père-Lachaise'\ndf[(df['année'] > 1900) | (df['quartier'] == 'Père-Lachaise')]\n\nFusionner des DataFrames grâce à la fonction concat et la méthode merge :\n# Concaténation verticale\npd.concat([df1, df2], axis = 0)\n\n# Concaténation horizontale\npd.concat([df1, df2], axis = 1)\n\n# Différents types de jointures\ndf1.merge(right = df2, on = 'column', how = 'inner')\ndf1.merge(right = df2, on = 'column', how = 'outer')\ndf1.merge(right = df2, on = 'column', how = 'left')\ndf1.merge(right = df2, on = 'column', how = 'right')\n\nTrier et ordonner les valeurs d'un DataFrame grâce aux méthodes sort_values et sort_index :\n# Tri d'un DataFrame par la colonne 'column' dans l'ordre croissant\ndf.sort_values(by = 'column', ascending = True)\n\nEffectuer une opération groupby complexe grâce aux fonctions lambda et aux méthodes groupby et agg :\nfunctions_to_apply = {\n    'column1' : ['min', 'max'],\n    'column2' : [np.mean, np.std],\n    'column3' : lambda x: x.max() - x.min()\n    }\n\ndf.groupby('column_to_group_by').agg(functions_to_apply)\nDans ce module d'introduction à Python pour la Data Science, vous avez appris à créer, nettoyer et manipuler un jeu de données avec Python grâce aux modules numpy et pandas.\nVous disposez de tous les outils pour aborder des notions de Data Science plus avancées comme le Machine Learning ou la Visualisation de données)."
+      },
+      {
+        "title": "DA101 1.Introduction au DataFrames ",
+        "description": "Learn from notebook: DA101 1.Introduction au DataFrames ",
+        "initialCode": "import pandas as pd\n",
+        "hints": [
+          "1. Format d'un DataFrame\nUn DataFrame se présente sous forme d'une matrice dont chaque ligne et chaque colonne porte un indice. \nEn général, les colonnes sont indexées par leur nom.\nUn DataFrame sert à stocker des bases de données. \n\nLes différentes entrées de la base (individus, animaux, objets, etc.) sont les différentes lignes et leurs caractéristiques sont les différentes colonnes :\n    Nom\t SexeTaille\tAge\n0\tRobert\tM\t174\t23\n1\tMark\tM\t182\t40\n2\tAline\tF\t169\t56\n\nLe DataFrame ci-dessus regroupe des informations sur 3 individus : le tableau possède donc 3 lignes.\nPour chacun de ces individus, nous disposons de 4 variables (le nom, le sexe, la taille et l'âge) : le tableau possède donc 4 colonnes.\nLa colonne contenant les numérotations des lignes est appelée l'index et ne se gère pas de la même façon qu'une colonne du dataset.\nOn peut laisser l'index par défaut (numérotation des lignes), indexer avec une des colonnes du DataFrame ou indexer avec une liste que l'on définit nous-même.\n\nExemple : Indexation par défaut (numérotation des lignes) :\n    Nom\t SexeTaille\tAge\n0\tRobert\tM\t174\t23\n1\tMark\tM\t182\t40\n2\tAline\tF\t169\t56\n\nExemple : Indexation par la colonne 'Nom' :\n     SexeTaille\tAge\nRobert\tM\t174\t23\nMark\tM\t182\t40\nAline\tF\t169\t56\n\nExemple : Indexation par la liste ['personne_1', 'personne_2', 'personne_3'] :\n            Nom\t SexeTaille\tAge\npersonne_1\tRobert\tM\t174\t23\npersonne_2\tMark\tM\t182\t40\npersonne_3\tAline\tF\t169\t56\n\nNous détaillerons plus loin comment définir l'index lors de la création d'un DataFrame.\n\nLa classe DataFrame présente plusieurs avantages par rapport à un array Numpy :\nVisuellement, un DataFrame est beaucoup plus lisible grâce à une indexation des colonnes et des lignes plus explicite.\nAu sein d'une même colonne les éléments sont du même type mais d'une colonne à l'autre, le type des éléments peut varier, ce qui n'est pas le cas des arrays Numpy qui ne supportent que des données de même type.\nLa classe DataFrame contient davantage de méthodes pour la manipulation et le pré-traitement de bases de données, tandis que NumPy se spécialise plutôt dans le calcul optimisé.\n\n2. Création d'un DataFrame à partir d'un array NumPy\nIl est possible de créer directement un DataFrame à partir d'un array NumPy grâce au constructeur DataFrame(). \nL'inconvénient de cette méthode est qu'elle n'est pas très pratique et le type des données est obligatoirement le même pour toutes les colonnes.\nRegardons d'un peu plus près l'en-tête de ce constructeur.\n\npd.DataFrame(data, index, columns, ...)\nLe paramètre data contient les données à mettre en forme (array NumPy, liste, dictionnaire ou un autre DataFrame).\nLe paramètre index, si précisé, doit être une liste contenant les indices des entrées.\nLe paramètre columns, si précisé, doit être une liste contenant le nom des colonnes.\n\n   Pour les autres paramètres, vous pouvez consulter la documentation Python.\n\nExemple :\nCréation d'un array NumPy \narray = np.array([[1, 2, 3, 4], \n                  [5, 6, 7, 8], \n                  [9, 10, 11, 12]])\n\nInstanciation d'un DataFrame \ndf = pd.DataFrame(data = array,                 Les données à mettre en forme\n                  index = ['i_1', 'i_2', 'i_3'],  Les indices de chaque entrée\n                  columns = ['A', 'B', 'C', 'D']) Le nom des colonnes\n\nCeci produit le DataFrame suivant :\n\nA\tB\tC\tD\ni_1\t1\t2\t3\t4\ni_2\t5\t6\t7\t8\ni_3\t9\t10\t11\t12\n\n3. Création d'un DataFrame à partir d'un dictionnaire\nUne autre méthode pour créer un DataFrame est d'utiliser un dictionnaire. \nGrâce à cette technique, les colonnes peuvent être de type différent et sont déjà définies lors de la création du DataFrame.\n\nExemple :\nCréation d'un dictionnaire\ndictionnaire = {'A': [1, 5, 9], \n                'B': [2, 6, 10],\n                'C': [3, 7, 11],\n                'D': [4, 8, 12]}\n\nInstanciation d'un DataFrame \ndf = pd.DataFrame(data = dictionnaire,\n                  index = ['i_1', 'i_2', 'i_3'])\n\nCeci produit le même DataFrame que précédemment :\n\nA\tB\tC\tD\ni_1\t1\t2\t3\t4\ni_2\t5\t6\t7\t8\ni_3\t9\t10\t11\t12\n\nLe directeur d'une épicerie recense les informations suivantes sur son stock de produits alimentaires :\n100 pots de miel dont la date d'expiration est le 10/08/2025 et valant 2€ l'unité.\n55 paquets de farine expirant le 25/09/2024 coûtant chacun 3€.\n1800 bouteilles de vin à 10€ l'unité expirant le 15/10/2023.\n\n(a) À partir d'un dictionnaire, créer et afficher le DataFrame df qui pour chaque produit doit contenir de manière organisée :\nSon nom.\nSa date d'expiration.\nSa quantité.\nSon prix à l'unité.\nVous choisirez des noms de colonne pertinents et l'index sera celui par défaut (dans ce cas on ne spécifie pas le paramètre index).",
+          "4. Création d'un DataFrame à partir d'un fichier de données\nLe plus souvent, les DataFrame sont directement créés à partir de fichiers contenant les données d'intérêt. \nCela peut être un fichier de format CSV, Excel, Texte etc...\nLe format le plus courant est le format CSV, qui signifie Comma-Separated Values et désigne un fichier de type tableur dont les valeurs sont séparées par des virgules.\n\nEn voici un exemple :\nA, B, C, D,\n1, 2, 3, 4,\n5, 6, 7, 8,\n9, 10, 11, 12\n\nDans ce format :\n\nLa première ligne contient le nom des colonnes, mais il arrive que le nom des colonnes ne soit pas renseigné.\nChaque ligne correspond à une entrée de la base de données.\nLes valeurs sont séparées par un caractère de séparation. Dans cet exemple, il s'agit de ',' mais cela pourrait être un ';'.\nPour importer ces données dans un DataFrame, on utilise alors la fonction read_csv de pandas dont l'en-tête est la suivante :\npd.read_csv(filepath_or_buffer , sep = ',', header = 0, index_col = 0 ... )\nLes arguments essentiels de la fonction pd.read_csv à connaître sont :\nfilepath_or_buffer : Le chemin d'accès du fichier .csv relativement à l'environnement d'exécution. Si le fichier se trouve dans le même dossier que l'environnement Python, il suffit de renseigner le nom du fichier. Ce chemin doit être renseigné sous forme de chaîne de caractères.\nsep : Le caractère utilisé dans le fichier .csv pour séparer les différentes colonnes. Cet argument doit être spécifié sous forme de caractère.\nheader : Le numéro de la ligne qui contient les noms des colonnes. Si par exemple les noms de colonnes sont renseignés dans la première ligne du fichier .csv, alors il faut spécifier header = 0. Si les noms ne sont pas renseignés, on mettra header = None.\nindex_col : Le nom ou numéro de la colonne contenant les indices de la base de données. Si les entrées de la base sont indexées par la première colonne, il faudra renseigner index_col = 0. Alternativement, si les entrées sont indexées par une colonne qui porte le nom \"Id\", on pourra spécifier index_col = \"Id\".\nCette fonction retournera un objet de type DataFrame qui contient toutes les données du fichier.\n\n(a) Charger les données contenues dans le fichier transactions.csv dans un DataFrame nommé transactions :\n\nLe fichier se trouve dans le même dossier que l'environnement de ce notebook.\nLes colonnes sont séparées par une virgule.\nLes noms des colonnes sont renseignés sur la première ligne du fichier.\nLes lignes de la base sont indexées par la colonne \"transaction_id\" qui est aussi la première colonne.",
+          "Il est possible de récupérer le nom des colonnes d'un DataFrame grâce à son attribut columns :\nCréation d'un DataFrame df à partir d'un dictionnaire\ndictionnaire = {'A': [1, 5, 9], \n                'B': [2, 6, 10],\n                'C': [3, 7, 11],\n                'D': [4, 8, 12]}\n\ndf = pd.DataFrame(data = dictionnaire, index = ['i_1', 'i_2', 'i_3'])\n\nCes instructions produisent le même DataFrame que précédemment :\n\nA\tB\tC\tD\ni_1\t1\t2\t3\t4\ni_2\t5\t6\t7\t8\ni_3\t9\t10\t11\t12\n\nAffichage des colonnes du DataFrame df\n print(df.columns)\n>>> ['A', 'B', 'C', 'D']\n\nLa liste du nom des colonnes est utile pour parcourir les colonnes d'un DataFrame à l'aide d'une boucle.\n\nIl peut être intéressant de savoir combien de transactions (lignes) et combien de caractéristiques (colonnes) le dataset contient.\nPour cela nous allons utiliser l'attribut shape du DataFrame qui affiche les dimensions de notre DataFrame sous la forme d'un tuple (nombre de lignes, nombre de colonnes) :\n\nAffichage des dimensions de mon_dataframe\nprint(mon_dataframe.shape)\n>>> (3,4)\n\n(c) Afficher les dimensions du DataFrame transactions ainsi que le nom de la 5ème colonne. Rappelez-vous qu'en Python les indices commencent à 0."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA101 .EXAMEN 1",
+        "description": "Learn from notebook: DA101 .EXAMEN 1",
+        "initialCode": "\n\nExamen DA 101\n\nIntroduction à Python pour la data-science \n\nConsignes \nL'exercice est composé de plusieurs questions, faites-les dans l'ordre et faites attention à respecter le nom des variables. La majorité des questions sont indépendantes.\nEvitez de rester bloqué plus de 5 minutes sur la même question. \nUn code clair et commenté si nécessaire, sera apprecié.\n\nN'hésitez pas à contacter l'équipe DataScientest si vous rencontrez des problèmes sur help@datascientest.com\n\nExploration du Jeu de données\nCette évaluation porte sur le jeu de données \"german_credit_data.csv\". Ce dernier contient des informations sur plus de 1000 individus ayant souscrits à un prêt bancaire. La variable duration indique la durée de l'emprunt en mois.\nLe principal objectif de l'examen est d'utiliser des méthodes d'exploration, de manipulation et de préparation de données dans l'optique d'entraîner un algorithme de régression pour prédire l'espérance de vie d'un pays\n(a) Importer le module pandas sous le nom pd\n(b) Lire le fichier \"german_credit_data.csv\" dans un DataFrame appelé df en précisant que la première colonne contient les indices.\n(c) Afficher un aperçu et une première description des variables du jeu de données.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA101 3.Les boucles",
+        "description": "Learn from notebook: DA101 3.Les boucles",
+        "initialCode": "Python pour la data-science \nLes boucles \nDans un algorithme, il arrive fréquemment que l'on ait besoin de répéter plusieurs fois les mêmes lignes de code. \nPour cela, il est plus commode d'utiliser des boucles, qui vont exécuter une série d'opérations autant de fois que nécessaire.\nIl existe deux clauses pour définir les boucles en Python : Les clauses for et while.\n1. La boucle while\nLe mot-clé while signifie \"tant que\" en anglais. La boucle while permet de répéter un bloc d'instructions tant que la condition de départ est vraie (ou jusqu'à ce qu'elle soit fausse).\nPar exemple, pour déterminer l'indice du mot \"trouvé\" dans une liste de mots, il suffit de parcourir tous les indices de la liste jusqu'à trouver la chaîne \"trouvé\" :\n# La liste de motsNous disposons d'une liste contenant les temps effectués par des athlètes lors d'une course de 100m. \nLes résultats sont triés par ordre croissant.\nEn utilisant une boucle while, déterminer combien d'athlètes ont réalisé un temps inférieur à 10s. dans laquelle nous voulons trouver le mot \"trouvé\".\n\nphrase = ['La', 'boucle', 'while', 'parcourt', 'tous', 'les', 'éléments', 'de', 'la', 'liste', \"jusqu'à\", 'ce', \"qu'elle\", 'ait', 'trouvé', 'ce', \"qu'elle\", 'cherche', '.']\n\n# La variable i va stocker l'indice dans lequel nous sommes\ni=0\n\n# Tant que le mot à l'indice où nous sommes est différent de \"trouvé\"\nwhile phrase[i] != 'trouvé':\n    # On incrémente la valeur de i de 1 pour passer à l'indice suivant\n    i += 1\n\n# La boucle s'arrête lorsque nous avons trouvé le bon mot\nprint(\"Le mot 'trouvé' est à l'indice\", i)\n>>>> Le mot 'trouvé' est à l'indice 14\nLa structure générale d'une boucle while est la suivante :\nwhile condition:\n    instruction1\n    ...\n    instructionN\n\nautre_instruction\nÀ chaque itération de la boucle while, la condition est évaluée. Si la condition est vérifiée, le bloc d'instructions est éxécuté, sinon la boucle se termine.\nLes lignes en dehors du bloc d'instruction ne font pas partie de la boucle, elles ne sont donc exécutées qu'une fois la boucle terminée.\nSi la condition est fausse dès le départ, le bloc d'instruction n’est jamais exécuté.\nInversement, si la condition reste toujours vraie, le bloc d'instruction est exécuté indéfiniment. Il est donc important de s'assurer que la boucle va se terminer avant de l'exécuter.\n(a) Instancier une variable i avec la valeur 1.\n(b) À l'aide d'une boucle while, afficher les 10 premiers entiers naturels.\nSi par mégarde vous lancez une boucle infinie, pouvez interrompre son exécution à l'aide des boutons qui se trouvent en bas à gauche de votre écran :\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA101 2.Opérateur et Structure de Contrôle",
+        "description": "Learn from notebook: DA101 2.Opérateur et Structure de Contrôle",
+        "initialCode": "Python pour la Data Science \nOpérateurs et Structures de Contrôle\nIntroduction\nLes opérateurs comme + ou = servent à effectuer des opérations sur des variables et leurs valeurs. \nCes opérateurs appartiennent à la grande famille des opérateurs de Python. Dans cet exercice, nous allons apprendre à manipuler les catégories d'opérateurs suivantes :\nLes opérateurs arithmétiques.\nLes opérateurs d'affectation.\nLes opérateurs de comparaison.\nLes opérateurs d'appartenance.\nLes opérateurs logiques.\nNous verrons ensuite comment utiliser ces opérateurs pour contrôler l'exécution de code à l'aide des instructions if, else et elif.\n1. Les Opérateurs Arithmétiques\nLes opérateurs arithmétiques applicables sur les variables de types numériques sont les suivants :\nSymbole\tOpération\tExemple\n+\tAddition\t6+4 renvoie 10\n-\tSoustraction\t6-4 renvoie 2\n*\tMultiplication\t6*4 renvoie 24\n/\tDivision réelle\t6/4 renvoie 1.5\n//\tDivision entière\t6.0//4 renvoie 1\n**\tPuissance\t6**4 renvoie 1296\n%\tModulo\t6 % 4 renvoie 2\nLa division entière // correspond à compter le nombre de fois que le nombre de droite peut diviser entièrement le nombre de gauche. Par exemple, 7 // 2 vaut 3 car 2 peut entrer 3 fois dans 7.\nL'opérateur modulo % permet d'obtenir le reste de la division entière entre 2 nombres. Par exemple, 7 % 2 vaut 1 car 7 est divisible par 2 trois fois et il reste 1.\nL'opérateur % est utile pour savoir si un nombre est pair ou impair. En effet, si un nombre n est pair, alors nécessairement n % 2 vaut 0. De même, si n est impair, alors n % 2 vaut 1.\n(a) Créer la variable distance et lui assigner la valeur 750 (distance Paris-Marseille en km).\n(b) Créer la variable vitesse et lui assigner la valeur 4.8 (vitesse moyenne d'un marcheur en km/h).\n(c) Créer une nouvelle variable temps qui correspond au quotient des deux variables précédentes.\nLa variable temps nous donne le temps en heures qu'il faudrait à un marcheur pour voyager de Paris à Marseille sans s'arrêter.\n(d) Combien de jours et d'heures faudrait-il à notre marcheur pour aller de Paris à Marseille sans s'arrêter ? L'affichage de votre réponse doit être sous la forme \"Il faudrait au marcheur 4.0 jours et 14.1 heures.\".",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "Conclusion et Récap\nLes opérateurs arithmétiques applicables sur les variables de types numériques permettent d'effectuer des opérations élémentaires et sont récapitulés ci-dessous :\nSymbole\tOpération\tExemple\n+\tAddition\t6+4 renvoie 10\n-\tSoustraction\t6-4 renvoie 2\n*\tMultiplication\t6*4 renvoie 24\n/\tDivision réelle\t6/4 renvoie 1.5\n//\tDivision entière\t6.0//4 renvoie 1\n**\tPuissance\t6**4 renvoie 1296\n%\tModulo\t6 % 4 renvoie 2\nPour toutes les opérations arithmétiques, il existe un moyen d'appliquer l'opération et l'affectation d'un seul coup grâce aux opérateurs d'assignation suivants :\nSymbole\tOpération\n+=\tAddition\n-=\tSoustraction\n*=\tMultiplication\n/=\tDivision réelle\n//=\tDivision entière\n**=\tPuissance\n%=\tModulo\nExemple : x += 10 est équivalent à x = x + 10.\nLes opérateurs de comparaison de Python sont :\nExpression\tExemple\tSignification\n<\tx < y\tEst-ce que x est strictement inférieur à y ?\n<=\tx <= y\tEst-ce que x inférieur ou égal à y ?\n>\tx > y\tEst-ce que x est strictement supérieur à y ?\n>=\tx >= y\tEst-ce que x est supérieur ou égal à y ?\n==\tx == y\tEst-ce que x est égal à y ?\n!=\tx != y\tEst-ce que x est différent de y ?\nCes opérateurs servent surtout à construire des structures de contrôle grâce aux clauses if, else et elif :\nif taille < 160:\n    print(\"Cette personne est petite.\")\nelif 160 <= taille < 180:\n    print(\"Cette personne a une taille moyenne.\")\nelif 180 <= taille < 200:\n    print(\"Cette personne est très grande.\")\nelse:\n    print(\"Cette personne est très très grande.\")\nLes opérateurs logiques permettent de construire des conditions plus complexes :\nOpérateur\tExemple\tSignification\nand\tP and Q\tEst-ce que P et Q sont toutes deux vraie ?\nor\tP or Q\tEst-ce que au moins une des expressions parmi P et Q est vraie ?\nnot\tnot P\tLa négation de l'expression P\nif (anciennete > 10) and (1500 > salaire or salaire > 2300):\n    print(\"Cette personne est éligible à la prime.\")"
+      }
+    ]
+  },
+  "level2": {
+    "title": "Level 2: Level 2 Data Processing",
+    "content": "Advanced content from Level_2_Data_Processing",
+    "exercises": [
+      {
+        "title": "DA104 3.Analyse des liaisons entre les variables d'un jeu de données",
+        "description": "Learn from notebook: DA104 3.Analyse des liaisons entre les variables d'un jeu de données",
+        "initialCode": "import pandas as pd\n\ndf_crownfunding_data= pd.read_csv(filepath_or_buffer='crownfunding_data.csv', header=0, index_col=0, encoding='ISO-8859-1')\ndf_crownfunding_data.head()",
+        "hints": [
+          "Statistiques exploratoires \n\nAnalyse des liaisons entre les variables d'un jeu de données \nContexte et objectif\nL'analyse des liaisons entre variables passe par l'étude des corrélations entre elles. \nIl faut distinguer 3 niveaux d'analyse :\nentre les variables quantitatives,\nentre les variables qualitatives,\nentre les variables qualitatives et quantitatives.\nPour chaque niveau d'analyse, il faut répondre à cette question : y a-t-il dépendance ou indépendance entre les variables et dans quelle mesure ?\nL'objectif de ce module est d'arriver à déterminer et mesurer les niveaux de corrélation entre les variables d'un jeu de données.\n\nCommençons par la phase d'importation des packages.\n\n(a) Importer les packages pandas et numpy.\n(b) Charger dans un tableau nommé df les données situées dans le fichier 'crowdfunding.csv' en mettant la première colonne en indice et afficher les 5 premières lignes."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA104 1.Data Quality",
+        "description": "Learn from notebook: DA104 1.Data Quality",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA104 2.Analyse descriptive des variables qualitatives d'un jeu de données ",
+        "description": "Learn from notebook: DA104 2.Analyse descriptive des variables qualitatives d'un jeu de données ",
+        "initialCode": "# Insérez votre code ici\n\nimport pandas as pd\nimport numpy as np\n\ncrowdf_data = pd.read_csv(filepath_or_buffer = 'crowdfunding.csv', header=0, index_col=0)\ncrowdf_data.head()\n",
+        "hints": [
+          "Statistiques exploratoires \nAnalyse descriptive des variables qualitatives d'un jeu de données \nContexte et objectif\nL'analyse des variables qualitatives est une étape importante dans la compréhension des données. \nElles sont souvent plus difficiles à manipuler et il est important d'observer leur relation avec les variables numériques. \nElles livrent souvent des informations précieuses sur l'interaction entre les variables dans le jeu de données.\nL'objectif de ce module est d'arriver à déterminer les modalités d'une variable qualitative et l'importance de chacune. \nCe module vous permettra également de vous familiariser avec des méthodes simples de gestion de données.\nCommençons par la phase d'importation des packages.\n(a) Importer les packages pandas et numpy.\n(b) Charger dans un tableau nommé data les données situées dans le fichier 'crowdfunding.csv' en mettant la première colonne en indice et afficher les 5 premières lignes."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA105 4.Données manquantes",
+        "description": "Learn from notebook: DA105 4.Données manquantes",
+        "initialCode": "%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\n\n# Lire le fichier \"Produits.csv\" dans un Dataframe Produits et l'afficher.\nProduits = pd.read_csv(\"Produits.csv\")\n\nProduits.head()\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "Ventes.Canal.fillna(method='bfill', inplace=True)\n"
+      },
+      {
+        "title": "DA105 6.Data Cleaning",
+        "description": "Learn from notebook: DA105 6.Data Cleaning",
+        "initialCode": "Data Quality \nData Cleaning - exercice guidé\nIntroduction\nDans les notebooks précédents, nous avons appris à inspecter un jeu de données, à standardiser les données, à gérer les valeurs manquantes ainsi que les données textuelles. L'objectif de ce chapitre est de mettre en application ce que vous avez appris sur un jeu de données plus complexe. Nous approfondirons la notion de \"propreté\" d'un jeu de données.\nPour cet exercice guidé, nous avons volontairement sélectionné un jeu de données que l'on pourrait qualifier de \"unclean\", beaucoup de travail sera nécessaire pour le rendre de bonne qualité.\nLes manipulations que vous allez faire sur les données seront parfois irréversibles (suppression de colonnes, multiplication, changement d'index...). Ainsi, nous placerons des \"checkpoints\" avant chaque question importante, pour récupérer le dataset tel qu'il devrait être à ce niveau.\nSi vous pensez que votre jeu de données est irrécupérable, n'hésitez pas à exécuter la cellule correspondant au dernier \"checkpoint\" qui vous donnera le jeu de données dont vous avez besoin pour poursuivre l'exercice.\nLe dataset dont nous disposons présente une liste de produits vendus par un site de vente en ligne. Chaque ligne correspond à un produit, et contient des détails sur le produit en lui-même (couleur, taille, prix...), et le vendeur (note, photo, pays...).\n1. Inspection des données\n(a) Importer pandas et numpy.\nLire 'Ventes_en_ligne.csv' dans un DataFrame nommé df.\nAfficher les informations de df.",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "Conclusion\nNous avons fini de nous occuper des valeurs manquantes. Comme nous avons pu le voir, le traitement de ces dernières dépend du contexte, de la manière dont les données ont été collectées, du type de données... L'objectif est de supprimer le moins de lignes possible, tout en modifiant le moins possible le sens des données.\nBien souvent, le plus difficile est de comprendre pourquoi les données manquantes sont présentes. Une mauvaise interprétation peut mener à de mauvaises conclusions par la suite. Néanmoins, il est parfois préférable de se tromper légèrement en complétant un jeu de données que de conserver un jeu de données avec beaucoup de valeurs manquantes.\nLa question des valeurs manquantes interrogent aussi souvent le sens que l'on donne aux données. Est-ce que cette colonne apporte du sens à mon dataset ? Est-il possible de la résumer ou de la représenter autrement ? Dans le cas d'un ID client, ce n'est par exemple pas possible.\nNous avons terminé le nettoyage de ce fichier, que l'on peut à présent utiliser, manipuler, analyser en toute sérénité."
+      },
+      {
+        "title": "DA105 5.Traitement de texte",
+        "description": "Learn from notebook: DA105 5.Traitement de texte",
+        "initialCode": "import pandas as pd\naccidents = pd.read_csv('/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/CSV:FILE/US_Accidents_Dec21_updated.csv')\naccidents.head(10)",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA MC Data Profiling",
+        "description": "Learn from notebook: DA MC Data Profiling",
+        "initialCode": "import pandas as pd\n\nimport numpy as np\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# Solution\n\npd.crosstab(merge[\"Gender\"], merge['Full or Part-Time'], normalize=0)"
+      },
+      {
+        "title": "DA MC Bonnes pratiques",
+        "description": "Learn from notebook: DA MC Bonnes pratiques",
+        "initialCode": "# Solution\n\n# On importe en premier lieu la librairie qui va nous permettre de lire le fichier où se trouve nos données\n\nimport pandas as pd\n\n# On utilise la fonction read_csv pour lire nos données car nous avons à disposition un fichier de type csv\n\ndf = pd.read_csv(\"/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/CSV:FILE/winequality-red.csv\", sep=\";\", index_col=0)\n\n# On fait attention à quel séparateur utiliser et à l'index\n\n# On affiche les six premières lignes\n\ndisplay(df.head(6))\n\n# On affiche les informations principales sur nos données\n\ndisplay(df.info())\n\n# On affiche la taille de notre DataFrame\n\ndf.shape",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# Solution\n\ndf.loc[(df[\"quality\"] == df[\"quality\"].max()) & (df[\"alcohol\"] > 13)]"
+      },
+      {
+        "title": "DA105 2.Inspection des données et standardisation",
+        "description": "Learn from notebook: DA105 2.Inspection des données et standardisation",
+        "initialCode": "md = open(\"Meta-data.txt\",\"r\")  \n  \nmd.read()",
+        "hints": [
+          "> Exercice d'application\n> A présent voici un exercice qui vous fera mettre en pratique les notions vues dans ce notebook. Vous allez travailler sur les datasets **`regions`**, **`Ventes_2017`**, **`Ventes_2018`**, **`Ventes_2019`**.\n>\n> Si vous voulez répondre à chaque question séparément, vous pouvez ajouter des cellules en appuyant sur les touches `echap` puis `b`de votre clavier après avoir sélectionné une cellule.\n\n* Questions :\n    \n  **a)** Afficher les 10 premières lignes de **`regions`**.\n    \n  > Il est important de toujours conserver la même standardisation, y compris entre 2 DataFrame différents, pour pouvoir les fusionner éventuellement. Or, on remarque ici que `'ILE-DE-France'` n'est pas complètement en majuscule, alors que dans **`clients`** toutes les régions sont en majuscule.\n    \n  **b)** Mettre les colonnes `'Ville'` et `'Region'` en majuscule dans le DataFrame **`regions`**.\n            \n  > Les régions présentes dans ces données datent d'avant 2016 et les fusions qui eurent lieu suite à la réforme territoriale. Les données de vente dont nous disposons datent d'après 2017, il est donc nécessaire de modifier ces régions.\n\n\n|Ancienne région                     | Nouvelle région      |\n|------------------------------------|----------------------|\n|     LANGUEDOC-ROUSSILLON           | OCCITANIE            |\n| PAYS DE LA LOIRE                   | PAYS DE LA LOIRE     |\n| POITOU-CHARENTES                   | NOUVELLE-AQUITAINE   |\n| BRETAGNE                           | BRETAGNE             |\n| AQUITAINE                          | NOUVELLE-AQUITAINE   |\n| ILE-DE-FRANCE                      | ILE-DE-FRANCE        |\n| RHONE-ALPES                        | AUVERGNE-RHONE-ALPES |\n    \n\n**c)** À l'aide du tableau de correspondance disponible ci-dessus, actualiser le nom des régions lorsque nécessaire.\n\n> De la même manière que pour le DataFrame **`clients`**, certaines villes ont pu être mal orthographiées.\n\n**d)** Afficher les différentes valeurs prises par la variable `'Ville'` puis corriger l'orthographe des villes si nécessaire.\n\n> Les données de **`Ventes_2017`**, **`Ventes_2018`** et **`Ventes_2019`** ont été collectées sur un grand intervalle de temps (3 ans). Sur cette période de temps, l'entreprise qui les collectait a beaucoup changé. Est-ce que ce changement se ressent sur les données ?\n\n**e)** Afficher les premières lignes des 3 fichiers contenant les ventes des années 2017, 2018 et 2019 et remarquer une incohérence. \n\n**f)** Modifier la variable `'Id Client'` de **`Ventes_2017`** afin d'obtenir des Id consistants dans les 3 jeux de données.\n\n> De nouveaux produits ont été ajoutés au catalogue de vente à partir de 2018. Aucun d'eux n'a donc été vendu en 2017.\n\n**g)** Déterminer les nouveaux produits ajoutés en 2018.\n\n> Nous souhaitons regrouper l'intégralité des données de ventes dans un seul DataFrame **`Ventes_globales`** pour simplifier le traitement. \n\n**h)** Dans les dataframes **`Ventes_2018`** et **`Ventes_2019`**, transformer les variables `'Date de Livraison'` et `'Date de Commande'` afin qu'elles soient de type `datetime` et au format : \"%Y/%m/%d\". \n\n**i)** Pour chacun des fichiers de vente comptabiliser le nombre de lignes entièrement copiées. Supprimer les doublons s'il y en a. \n\n**j)** Regrouper les trois DataFrame **`Ventes_2017`**, **`Ventes_2018`** et **`Ventes_2019`** dans un DataFrame nommé **`Ventes_globales`**.\n    \n> Les dates au format année/mois/jour portent parfois moins de sens que des informations sur la date comme le jour de la semaine par exemple. Ainsi, il est conseillé de regarder ce qui doit être mis en valeur et de rajouter des colonnes pour l'expliciter. \n    \n**k)** Ajouter une colonne nommée `\"Jour de Livraison\"` à **`Ventes_globales`** qui contiendra le jour de la semaine durant lequel la livraison a été effectuée. Faire de mêmes en ajoutant une colonne `\"Mois de Commande\"`. ([indice](https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.weekday.html))\n\n**l)** Toujours dans **`Ventes_globales`**, ajouter une colonne `\"Nouveaux Produits\"` qui contient False si la commande a été passée en 2017 et True sinon. \n  \n \n> De la même manière, plusieurs colonnes qui représentent une même variable catégorielle peuvent être fusionnées pour faciliter la lecture des données. Afficher les premières lignes du DataFrame **`produits`** et regarder les variables `'Categorie x'`.\n    \n**m)** Regrouper les 3 colonnes `'Categorie 1'`, `'Categorie 2'` et `'Categorie 3'` sous une seule colonne `'Categorie'` qui contient 1, 2 ou 3 en fonction de la catégorie du produit.\n\n> Comme le Code Postal, la Catégorie d'un produit ne représente pas une quantité, c'est donc une variable catégorielle.\n \n**n)** Changer le type de la colonne `'Categorie'` pour avoir des `str`. Ensuite, supprimer les colonnes `'Categorie 1'`, `'Categorie 2'` et `'Categorie 3'` qui sont maintenant inutiles."
+        ],
+        "solution": "# Réponses :\n\n# a)\nregions.head(10)\n\n# b)\nregions['Region'] = regions['Region'].apply(lambda x : x.upper())  \nregions['Ville'] = regions['Ville'].apply(lambda x : x.upper())\n\n# c) \n## Affiche les différentes valeurs prises par la variable Region\nprint(regions['Region'].unique())\n\n## Remplace en suivant le tableau de conversion\nregions.replace({'LANGUEDOC-ROUSSILLON' : 'OCCITANIE', \n                 ' AQUITAINE' : 'NOUVELLE-AQUITAINE', 'POITOU-CHARENTES': 'NOUVELLE-AQUITAINE',\n                 'RHONE-ALPES' : 'AUVERGNE-RHONE-ALPES'},\n               inplace = True)\n\n# d)\n## Affiche les différentes valeurs prises par la variable Ville\nprint(regions['Ville'].unique())\n\n## On s'aperçoit que \"RENES\" et \"PERPINAN\" sont mals orthographiés, et que \"PARIS LA DÉFENSE\" fait doublon avec \"PARIS\"\nregions.replace({'RENES' : 'RENNES', \n                 ' PERPINAN' : 'PERPIGNAN',\n                 'PARIS LA DEFENSE' : 'PARIS'},\n               inplace = True)\n\n# e)\nVentes_2017.head()\nVentes_2018.head()\nVentes_2019.head()\n# En 2017, les Id Clients ne sont pas représentés au même format que pour les années suivantes. \n# Il s'agit de chaînes de caractères contenant le préfixe 'Id' avant le numéro client.\n\n# f)\nVentes_2017['Id Client'] = Ventes_2017['Id Client'].apply(lambda x : x[2:]).astype(int)\n\n# g) \nprint(\"produits vendus en 2017 ;\", sorted(Ventes_2017['Id Produit'].unique()))\nprint(\"produits vendus en 2018 :\", sorted(Ventes_2018['Id Produit'].unique()))\n\n# Les produits d'Id 2, 7, 8 et 11 ont été ajouté au catalogue en 2018\n\n# Autre méthode à l'aide des ensembles (utiles si vous avez beaucoup de produits différents) :\n# A = set(Ventes_2017['Id Produit'])\n# B = set(Ventes_2018['Id Produit'])\n# B - A\n\n# h)\nVentes_2018['Date de Commande'] = pd.to_datetime(Ventes_2018['Date de Commande'])\nVentes_2018['Date de Livraison'] = pd.to_datetime(Ventes_2018['Date de Livraison'])\n\nVentes_2019['Date de Commande'] = pd.to_datetime(Ventes_2019['Date de Commande'])\nVentes_2019['Date de Livraison'] = pd.to_datetime(Ventes_2019['Date de Livraison'])\n\n# i)\nVentes_2017.duplicated().sum()\nVentes_2018.duplicated().sum()\nVentes_2019.duplicated().sum()\nVentes_2018.drop_duplicates(inplace = True)\n\n# j)\nVentes_globales = pd.concat([Ventes_2017,Ventes_2018,Ventes_2019])\n\n# k)\nVentes_globales['Jour de Livraison'] = Ventes_globales['Date de Livraison'].dt.weekday\nVentes_globales['Mois de Commande'] = Ventes_globales['Date de Commande'].dt.month\n\n# l)\nVentes_globales[\"Nouveaux Produits\"] = Ventes_globales['Date de Commande'].dt.year==(2018|2019)\n\n# m) \nproduits['Categorie'] = produits['Categorie 1'] + 2*produits['Categorie 2'] + 3*produits['Categorie 3']\nproduits.head()\n\n# n)\nproduits['Categorie'] = produits[\"Categorie\"].astype('str')\nproduits.drop(['Categorie 1', 'Categorie 2', 'Categorie 3'], axis=1, inplace=True)\n"
+      },
+      {
+        "title": "DA104 .EXAMEN - Corrigé",
+        "description": "Learn from notebook: DA104 .EXAMEN - Corrigé",
+        "initialCode": "",
+        "hints": [
+          "L'observation des premières lignes de notre DataFrame nous permet de déceler une incohérence. Le type informatique de l'ensemble de nos variables n'est pas numérique, pourtant la majorité de nos valeurs sont numériques.\nUne observation plus attentive du contenu de nos variables nous permet néanmoins de constater qu'il y a des valeurs non numériques. Il pourrait être intéressant d'identifier tous les caractères qui se sont glissés au sein de nos variables pour comprendre l'information contenu dans nos données. Si ce sont des valeurs erronnées, nous devrons alors les transformer en valeurs manquantes.\n(b) Essayez de modifier le type informatique des variables du DataFrame. Identifiez le problème rencontré.\n\nException\tDescription\nValueError\tElle apparaît lorsqu'une opération ou une fonction intégrée reçoit un argument qui a le bon type mais une valeur inappropriée.\nIndentationError\tElle apparaît quand l'indentation n'est pas spécifiée correctement.\n   Indice : Identifiez les caractères non numériques qui se sont glissés dans les données."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA105 1.Data Quality",
+        "description": "Learn from notebook: DA105 1.Data Quality",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA104 .EXAMEN 2",
+        "description": "Learn from notebook: DA104 .EXAMEN 2",
+        "initialCode": "oui",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "oui"
+      },
+      {
+        "title": "DA105 3.Standardisation des données numériques ",
+        "description": "Learn from notebook: DA105 3.Standardisation des données numériques ",
+        "initialCode": "%matplotlib inline\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "from sklearn.preprocessing import MinMaxScaler, StandardScaler\n\nscaler = MinMaxScaler()\n\ndf_dummies = pd.get_dummies(df) \ndf_scaled = pd.DataFrame(scaler.fit_transform(df_dummies), columns=df_dummies.columns)\n\ndf_scaled"
+      },
+      {
+        "title": "DA105 5.Traitement de texte copy",
+        "description": "Learn from notebook: DA105 5.Traitement de texte copy",
+        "initialCode": "Data Quality \nTraitement de texte\nNous allons dans ce notebook nous focaliser sur le traitement particulier du texte dans un jeu de données.\nOn parle de données textuelles lorsque les données contiennent des phrases rédigées. Ainsi, ce n'est pas parce qu'une colonne est de type 'string' qu'il s'agit forcément d'une donnée textuelle. Par exemple les id, les dates et les variables catégorielles n'en sont pas.\nLes données textuelles sont un peu différentes des autres par nature parce qu'elles ne peuvent pas être comprises immédiatement par un ordinateur. Il faut d'abord appliquer un traitement sur ces données pour en tirer du sens.\nIl est donc nécessaire d'appliquer un algorithme sur ces données afin d'obtenir l'information qui nous intéresse. Par exemple, on peut s'intéresser aux mots clés, à la taille du message, à la ponctuation...\n(a) Importer pandas.\n(b) Lire le fichier 'Accidents_US.csv' dans un DataFrame nommé accidents.\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "\nConclusion\nNous en avons terminé pour ce notebook concernant le traitement de texte. Vous savez désormais comment gérer des données textuelles pour en tirer des informations.\nLe traitement de texte représente aussi tout une branche du machine learning actuel. Ces algorithmes vont beaucoup plus loin dans l'analyse et la compréhension des textes rédigés. On appelle cela le \"Natural Langage Processing\" ou NLP. Aujourd'hui, les bases de données contiennent régulièrement des données textuelles, et de tels algorithmes sont indispensables pour en tirer le maximum d'informations."
+      }
+    ]
+  },
+  "level3": {
+    "title": "Level 3: Level 3 Data Visualization",
+    "content": "Advanced content from Level_3_Data_Visualization",
+    "exercises": [
+      {
+        "title": "DA113 .6.Boked Créer des cartes géographiques",
+        "description": "Learn from notebook: DA113 .6.Boked Créer des cartes géographiques",
+        "initialCode": "# Importation des modules standards\nimport pandas as pd\nimport numpy as np \n\n# Importation des fonctions dont l'on se servira pour toutes les figures\nfrom bokeh.plotting import figure, output_notebook, show\n\n# Précision de l'affichage des graphiques dans des cellules jupyter\noutput_notebook()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "from bokeh.tile_providers import get_provider\nfrom bokeh.models import ColumnDataSource, LabelSet\n\nsource = ColumnDataSource(df)\n\n# Création de la tuile CARTODBPOSITRON à partir de get_provider\n\ntuile = get_provider('CARTODBPOSITRON')\n\n# Instanciation d'une figure et ajout de tuile\n\np = figure(x_range = (-1000000, 7000000), # étendue de l'axe des abscisses\n           y_range = (-7000000, 9000000), # étendue de l'axe des ordonnées\n           x_axis_type = 'mercator',      # type de l'axe, ici projection mercator qui sert à se repérer sur une \n                                          # carte plane de la Terre\n           y_axis_type = 'mercator')      # // \n\n# Ajout de la tuile à la figure\n\np.add_tile(tuile)                     \n\n# Instanciation d'un nuage de points en forme de cercle\n\np.circle(x = 'lon',           # abscisses\n         y = 'lat',           # ordonnées\n         fill_color = 'blue', # couleur de remplissage des cercles\n         size = 10,           # taille des cercles\n         source = source)     # source des données\n\n# Instanciation des labels\n\nlabels = LabelSet(x = 'lon',              # abscisses\n                  y = 'lat',              # ordonnées\n                  text = 'place', # texte à afficher\n                  x_offset = 5,           # décalage sur l'axe des abscisses du label\n                  y_offset = 5,           # décalage sur l'axe des ordonnées du label\n                  source = source)        # source des données\n\n# Ajout des labels à la figure p\n\np.add_layout(labels)              \n\n# Affichage de la figure\n\nshow(p)"
+      },
+      {
+        "title": "DA114 .2.Matplotlib Ticks labels et légendes",
+        "description": "Learn from notebook: DA114 .2.Matplotlib Ticks labels et légendes",
+        "initialCode": "### Veuillez exécuter cette cellule de code avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "fig = plt.figure(figsize=(8,6))\nax1 = fig.add_subplot(111)\n\ns1 = np.random.randn(50).cumsum()\ns2 = np.random.randn(50).cumsum()\ns3 = np.random.randn(50).cumsum()\n# On crée les séries\n\nax1.plot(s1,color='#33CCFF',marker='o',linestyle='-.',label='courbe 1')\nax1.plot(s2,color='#FFCC99',marker='o',linestyle='-.',label='courbe 2')\nax1.plot(s3,color='#FF33CC',marker='o',linestyle='-.',label='courbe 3')\n# On trace les courbes\n\nax1.set_xlim([0,21])\nax1.set_ylim([-15,15])\n#On délimite les axes\n\nax1.set_xticks(range(0,21,2))\n#On gradue l'axe avec un pas de 2 (au lieu de 2.5)\n\nax1.set_xticklabels([\"j +\" + str(l) for l in range(0,21,2)])\n#On modifie les labels sur la graduation\n\nax1.set_xlabel('Durée après le jour j')\n\nax1.legend(loc='best')\n#permet de choisir l'endroit le plus vide sériesFF\n"
+      },
+      {
+        "title": "DA113 .2.Bokeh",
+        "description": "Learn from notebook: DA113 .2.Bokeh",
+        "initialCode": "from bokeh.plotting import figure, show, output_notebook\noutput_notebook()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "from numpy import linspace\nfrom numpy.random import randint\n\n# Listes de coordonnées \n\nx = linspace(0,10,50)\ny = randint(0,100, 50)\n\n# Instanciation de la figure\n\np = figure(plot_width=600,      # largeur\n           plot_height=400)     # hauteur\n\n# Instanciation du nuage de points en forme de cercles\n \np.circle(x,                     # abscisses\n         y,                     # ordonnées\n         color='mediumblue')    # couleur\n\n# Personnalisation des axes \n\np.axis.axis_line_width = 3                    # épaisseur des axes\np.axis.axis_line_color = \"navy\"               # couleur des axes\np.axis.major_label_text_color = \"gold\"        # couleur des labels de graduation des axes\n\np.xaxis.axis_label = \"abscisses\"              # label de l'axe x\n\np.yaxis.axis_label = \"ordonnées\"              # label de l'axe y\np.yaxis.major_label_orientation = \"vertical\"  # orientation des labels de graduation de l'axe y\n\n# Personnalisation de la grille\n\np.grid.grid_line_alpha = 0          # opacité de la grille\n\n# Affichage de la figure\n\nshow(p)"
+      },
+      {
+        "title": "DA112 4.Seaborn Analyse multivariée",
+        "description": "Learn from notebook: DA112 4.Seaborn Analyse multivariée",
+        "initialCode": "## Lancer la cellule pour importer les packages/fichiers nécessaires\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n%matplotlib inline\nimport seaborn as sns\n\nsns.set_theme() # pour modifier le thème\n\ndf = pd.read_csv(filepath_or_buffer='/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/DATA_SET_CSV/NBA_DATASCIENTEST/2021-2022 NBA Player Stats - Playoffs.csv', sep=';', index_col=0)",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# Afficher un bar plot du pourcentage de rebond offensif (variable 'orb') en fonction de la conférence dont font partie les joueurs, ainsi que de leurs performances dans les playoffs ('po').\nax, fig = plt.subplots(figsize=(20,10))\nsns.catplot(x='Tm', y='ORB', kind='bar', data=df);"
+      },
+      {
+        "title": "DA114 .8.Matplotlib Graphique interactifd et axes 3D",
+        "description": "Learn from notebook: DA114 .8.Matplotlib Graphique interactifd et axes 3D",
+        "initialCode": "%matplotlib notebook \n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfig = plt.figure(figsize=(8,6))\nax1 = fig.add_subplot(111)\n\ns1 = np.random.randn(50).cumsum()\ns2 = np.random.randn(50).cumsum()\ns3 = np.random.randn(50).cumsum()\n\nax1.plot(s1,color='#33CCFF',marker='o',linestyle='-.',label='courbe 1')\nax1.plot(s2,color='#FFCC99',marker='+',linestyle='-.',label='courbe 2')\nax1.plot(s3,color='#FF33CC',marker='o',linestyle='-.',label='courbe 3')\n\nax1.set_xlim([0,21])\nax1.set_ylim([-15,15])\n\nax1.set_xticks(range(0,21,2))\nax1.legend(loc='best')\nplt.show()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "x =  np.outer(np.linspace(-2, 2, 30), np.ones(30))\ny = x.T\nz = np.cos(x ** 2 + y ** 2)\n\nfig = plt.figure(figsize= (8,6))\nax = plt.axes(projection='3d')\n\nax.plot_surface(x, y, z, cmap=plt.cm.Spectral_r);"
+      },
+      {
+        "title": "DA114 .7.Matplotlib Image",
+        "description": "Learn from notebook: DA114 .7.Matplotlib Image",
+        "initialCode": "### Veuillez exécuter cette cellule de code avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "import pandas as pd\n\nhb=pd.read_csv('b.cshv', header=None)\n\nplt.figure(figsize=(8,6))\nplt.ylim([0,140])\nplt.xlim([-2,260])\n\nplt.plot(hb)\n\nplt.text(95,130,'Electrocardiogramme', style='italic')\n\nplt.imshow(heart, extent = [80,170,60,140]) ;"
+      },
+      {
+        "title": "DA114 .6.Matplotlib Polar charts",
+        "description": "Learn from notebook: DA114 .6.Matplotlib Polar charts",
+        "initialCode": "### Veuillez exécuter cette cellule de code avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "N = 150\nr = 2 * np.random.rand(N)\ntheta = 2 * np.pi * np.random.rand(N)\nsizes = 200 * r**2 * np.random.rand(N)\n\nax = plt.subplot(111, projection='polar')\n# On crée un graphique polaire vide\n\nc = ax.scatter(theta, r, c=theta, s=sizes, cmap=plt.cm.hsv)\n# On y ajoute les points de différentes couleurs et tailles."
+      },
+      {
+        "title": "DA111 2.Matplotlib Courbes multiples, styles de ligne et légendes",
+        "description": "Learn from notebook: DA111 2.Matplotlib Courbes multiples, styles de ligne et légendes",
+        "initialCode": "Introduction à la visualisation de données avec Matplotlib\nCourbes multiples, styles de ligne et légendes \n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "from matplotlib.collections import EllipseCollection\n\ndf = pd.read_csv(\"/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/sales_data.csv\")\nfig, axes = plt.subplots(2, 3)\naxes[0,0].scatter(df['SALES'], df['MONTH_ID']);\naxes[0,1].scatter(df['QUANTITYORDERED'], df['MONTH_ID']);\naxes[0,2].scatter(df['PRICEEACH'], df['MONTH_ID']);\naxes[1,0].hist2d(df['SALES'], df['MONTH_ID']);\naxes[1,1].hist2d(df['QUANTITYORDERED'], df['MONTH_ID']);\naxes[1,2].hist2d(df['PRICEEACH'], df['MONTH_ID']);"
+      },
+      {
+        "title": "DA MC DataViz'",
+        "description": "Learn from notebook: DA MC DataViz'",
+        "initialCode": "import matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\nimport plotly.express as px\nimport warnings\nwarnings.filterwarnings('ignore')\n%matplotlib inline\n# Import data",
+        "hints": [
+          "La rubrique CARACTERISTIQUES\n\nNum_Acc\nNuméro d'identifiant de l’accident.\n\njour mois\nJour de l'accident. Mois de l'accident.\nan\nAnnée de l'accident.\n\nhrmn\nHeure et minutes de l'accident.\n\nlum\nLumière : conditions d’éclairage dans lesquelles l'accident s'est produit :\n– Plein jour\n– Crépuscule ou aube\n– Nuit sans éclairage public\n– Nuit avec éclairage public non allumé\n– Nuit avec éclairage public allumé\n\ndep\nDépartement : Code INSEE (Institut National de la Statistique et des Etudes Economiques) du département (2A Corse-du-Sud – 2B Haute-Corse).\n\ncom\nCommune : Le numéro de commune est un code donné par l‘INSEE. Le code est composé du code INSEE du département suivi par 3 chiffres.\nagg\nLocalisation :\n– Hors agglomération\n– En agglomération\n\nint\nIntersection :\n– Hors intersection\n– Intersection en X\n– Intersection en T\n– Intersection en Y\n– Intersection à plus de 4 branches\n– Giratoire\n– Place\n– Passage à niveau\n– Autre intersection\natm\nConditions atmosphériques :\n-1 – Non renseigné\n– Normale\n– Pluie légère\n– Pluie forte\n– Neige - grêle\n– Brouillard - fumée\n– Vent fort - tempête\n– Temps éblouissant\n– Temps couvert\n– Autre\n\ncol\nType de collision :\n-1 – Non renseigné\n– Deux véhicules - frontale\n– Deux véhicules – par l’arrière\n– Deux véhicules – par le coté\n– Trois véhicules et plus – en chaîne\n– Trois véhicules et plus - collisions multiples\n– Autre collision\n– Sans collision\n\nadr\nAdresse postale : variable renseignée pour les accidents survenus en agglomération.\n\nlat\nLatitude\n\nLong\nLongitude\n\n\nLa rubrique LIEUX\n\nNum_Acc\nIdentifiant de l’accident identique à celui du fichier \"rubrique CARACTERISTIQUES\" repris dans l’accident.\n\ncatr\nCatégorie de route :\n– Autoroute\n– Route nationale\n– Route Départementale\n– Voie Communales\n– Hors réseau public\n– Parc de stationnement ouvert à la circulation publique\n– Routes de métropole urbaine 9 – autre\nvoie\nNuméro de la route.\n\nV1\nIndice numérique du numéro de route (exemple : 2 bis, 3 ter etc.).\nV2\nLettre indice alphanumérique de la route.\n\ncirc\nRégime de circulation :\n-1 – Non renseigné\n– A sens unique\n– Bidirectionnelle\n– A chaussées séparées\n– Avec voies d’affectation variable\n\nnbv\nNombre total de voies de circulation.\n\nvosp\nSignale l’existence d’une voie réservée, indépendamment du fait que l’accident ait lieu ou non sur cette voie.\n-1 – Non renseigné\n– Sans objet\n– Piste cyclable\n– Bande cyclable\n– Voie réservée\n\nprof\nProfil en long décrit la déclivité de la route à l'endroit de l'accident :\n-1 – Non renseigné\n– Plat\n– Pente\n– Sommet de côte\n– Bas de côte\n\npr\nNuméro du PR de rattachement (numéro de la borne amont). La valeur -1 signifie que le PR n’est pas renseigné.\n\npr1\nDistance en mètres au PR (par rapport à la borne amont). La valeur -1 signifie que le PR n’est pas renseigné.\nplan\nTracé en plan :\n-1 – Non renseigné\n– Partie rectiligne\n– En courbe à gauche\n– En courbe à droite\n– En « S »\n\nlartpc\nLargeur du terre-plein central (TPC) s'il existe (en m).\n\nlarrout\nLargeur de la chaussée affectée à la circulation des véhicules ne sont pas compris les bandes d'arrêt d'urgence, les TPC et les places de stationnement (en m).\nsurf\nEtat de la surface :\n-1 – Non renseigné\n– Normale\n– Mouillée\n– Flaques\n– Inondée\n– Enneigée\n– Boue\n– Verglacée\n– Corps gras – huile\n– Autre\n\ninfra\nAménagement - Infrastructure :\n-1 – Non renseigné\n– Aucun\n– Souterrain - tunnel\n– Pont - autopont\n– Bretelle d’échangeur ou de raccordement\n– Voie ferrée\n– Carrefour aménagé\n– Zone piétonne\n– Zone de péage\n– Chantier\n– Autres\n\nsitu\nSituation de l’accident :\n-1 – Non renseigné\n– Aucun\n– Sur chaussée\n– Sur bande d’arrêt d’urgence\n– Sur accotement\n– Sur trottoir\n– Sur piste cyclable\n– Sur autre voie spéciale 8 – Autres\nvma\nVitesse maximale autorisée sur le lieu et au moment de l’accident.\n\n\nLa rubrique VÉHICULES\n\nNum_Acc\nIdentifiant de l’accident identique à celui du fichier \"rubrique CARACTERISTIQUES\" repris pour chacun des véhicules décrits impliqués dans l’accident.\n\nid_vehicule\nIdentifiant unique du véhicule repris pour chacun des usagers occupant ce véhicule (y compris les piétons qui sont rattachés aux véhicules qui les ont heurtés) – Code numérique.\nNum_Veh\nIdentifiant du véhicule repris pour chacun des usagers occupant ce véhicule (y compris les piétons qui sont rattachés aux véhicules qui les ont heurtés) – Code alphanumérique.\nsenc\nSens de circulation :\n-1 – Non renseigné\n– Inconnu\n– PK ou PR ou numéro d’adresse postale croissant\n– PK ou PR ou numéro d’adresse postale décroissant\n– Absence de repère\n\ncatv\nCatégorie du véhicule :\n– Indéterminable\n– Bicyclette\n– Cyclomoteur <50cm3\n– Voiturette (Quadricycle à moteur carrossé) (anciennement \"voiturette ou tricycle à moteur\") 04 – Référence inutilisée depuis 2006 (scooter immatriculé)\n05 – Référence inutilisée depuis 2006 (motocyclette) 06 – Référence inutilisée depuis 2006 (side-car)\n07 – VL seul\n08 – Référence inutilisée depuis 2006 (VL + caravane) 09 – Référence inutilisée depuis 2006 (VL + remorque)\n– VU seul 1,5T <= PTAC <= 3,5T avec ou sans remorque (anciennement VU seul 1,5T <= PTAC\n<= 3,5T)\n– Référence inutilisée depuis 2006 (VU (10) + caravane)\n– Référence inutilisée depuis 2006 (VU (10) + remorque)\n– PL seul 3,5T <PTCA <= 7,5T\n– PL seul > 7,5T\n– PL > 3,5T + remorque\n– Tracteur routier seul\n– Tracteur routier + semi-remorque\n– Référence inutilisée depuis 2006 (transport en commun)\n– Référence inutilisée depuis 2006 (tramway)\n– Engin spécial\n– Tracteur agricole\n– Scooter < 50 cm3\n– Motocyclette > 50 cm3 et <= 125 cm3\n– Scooter > 50 cm3 et <= 125 cm3\n– Motocyclette > 125 cm3\n– Scooter > 125 cm3\n– Quad léger <= 50 cm3 (Quadricycle à moteur non carrossé)\n– Quad lourd > 50 cm3 (Quadricycle à moteur non carrossé)\n– Autobus\n– Autocar\n– Train\n– Tramway\n– 3RM <= 50 cm3\n– 3RM > 50 cm3 <= 125 cm3\n– 3RM > 125 cm3\n50 – EDP à moteur\n60 – EDP sans moteur 80 – VAE\n99 – Autre véhicule\nobs\nObstacle fixe heurté :\n-1 – Non renseigné\n– Sans objet\n– Véhicule en stationnement\n– Arbre\n– Glissière métallique\n– Glissière béton\n– Autre glissière\n– Bâtiment, mur, pile de pont\n– Support de signalisation verticale ou poste d’appel d’urgence\n– Poteau\n– Mobilier urbain\n– Parapet\n– Ilot, refuge, borne haute\n– Bordure de trottoir\n– Fossé, talus, paroi rocheuse\n– Autre obstacle fixe sur chaussée\n– Autre obstacle fixe sur trottoir ou accotement\n– Sortie de chaussée sans obstacle\n– Buse – tête d’aqueduc\n\nobsm\nObstacle mobile heurté :\n-1 – Non renseigné\n– Aucun\n– Piéton\n– Véhicule\n– Véhicule sur rail\n– Animal domestique\n– Animal sauvage 9 – Autre\nchoc\nPoint de choc initial :\n-1 – Non renseigné\n– Aucun\n– Avant\n– Avant droit\n– Avant gauche\n– Arrière\n– Arrière droit\n– Arrière gauche\n– Côté droit\n– Côté gauche\n– Chocs multiples (tonneaux)\n\nmanv\nManoeuvre principale avant l’accident :\n-1 – Non renseigné\n– Inconnue\n– Sans changement de direction\n– Même sens, même file\n– Entre 2 files\n– En marche arrière\n– A contresens\n– En franchissant le terre-plein central\n– Dans le couloir bus, dans le même sens\n– Dans le couloir bus, dans le sens inverse\n– En s’insérant\n– En faisant demi-tour sur la chaussée\nChangeant de file\n– A gauche\n– A droite\nDéporté\n– A gauche\n– A droite\nTournant\n– A gauche\n– A droite\nDépassant\n– A gauche\n– A droite\nDivers\n– Traversant la chaussée\n– Manœuvre de stationnement\n– Manœuvre d’évitement\n– Ouverture de porte\n– Arrêté (hors stationnement)\n– En stationnement (avec occupants\n– Circulant sur trottoir\n– Autres manœuvres\n\nmotor\nType de motorisation du véhicule :\n-1 – Non renseigné\n– Inconnue\n– Hydrocarbures\n– Hybride électrique\n– Electrique\n– Hydrogène\n– Humaine\n– Autre\n\noccutc\nNombre d’occupants dans le transport en commun.\n\nLa rubrique USAGERS\n\nNum_Acc\nIdentifiant de l’accident identique à celui du fichier \"rubrique CARACTERISTIQUES\" repris pour chacun des usagers décrits impliqués dans l’accident.\n\n\nid_usager\nIdentifiant unique de l’usager (y compris les piétons qui sont rattachés aux véhicules qui les ont heurtés) – Code numérique.\nid_vehicule\nIdentifiant unique du véhicule repris pour chacun des usagers occupant ce véhicule (y compris les piétons qui sont rattachés aux véhicules qui les ont heurtés) – Code numérique.\nnum_Veh\nIdentifiant du véhicule repris pour chacun des usagers occupant ce véhicule (y compris les piétons qui sont rattachés aux véhicules qui les ont heurtés) – Code alphanumérique.\n\nplace\nPermet de situer la place occupée dans le véhicule par l'usager au moment de l'accident. Le détail est donné par l’illustration ci-dessous :\n\n\n– Piéton (non applicable)\n\ncatu\nCatégorie d'usager :\n– Conducteur\n– Passager\n– Piéton\n\ngrav\nGravité de blessure de l'usager, les usagers accidentés sont classés en trois catégories de victimes plus les indemnes :\n– Indemne\n– Tué\n– Blessé hospitalisé\n– Blessé léger\n\nsexe\nSexe de l'usager :\n– Masculin\n– Féminin\n\nAn_nais\nAnnée de naissance de l'usager.\n\ntrajet\nMotif du déplacement au moment de l’accident :\n-1 – Non renseigné\n– Non renseigné\n– Domicile – travail\n– Domicile – école\n– Courses – achats\n– Utilisation professionnelle\n– Promenade – loisirs 9 – Autre\n\nLes équipements de sécurité jusqu’en 2018 étaient en 2 variables : existence et utilisation.\nA partir de 2019, il s’agit de l’utilisation avec jusqu’à 3 équipements possibles pour un même usager (notamment pour les motocyclistes dont le port du casque et des gants est obligatoire).\n\nsecu1\nLe renseignement du caractère indique la présence et l’utilisation de l’équipement de sécurité :\n-1 – Non renseigné\n– Aucun équipement\n– Ceinture\n– Casque\n– Dispositif enfants\n– Gilet réfléchissant\n– Airbag (2RM/3RM)\n– Gants (2RM/3RM)\n– Gants + Airbag (2RM/3RM)\n– Non déterminable\n– Autre\n\nsecu2\nLe renseignement du caractère indique la présence et l’utilisation de l’équipement de sécurité :\n-1 – Non renseigné\n– Aucun équipement\n– Ceinture\n– Casque\n– Dispositif enfants\n– Gilet réfléchissant\n– Airbag (2RM/3RM)\n– Gants (2RM/3RM)\n– Gants + Airbag (2RM/3RM)\n– Non déterminable\n– Autre\n\nsecu3\nLe renseignement du caractère indique la présence et l’utilisation de l’équipement de sécurité :\n-1 – Non renseigné\n– Aucun équipement\n– Ceinture\n– Casque\n– Dispositif enfants\n– Gilet réfléchissant\n– Airbag (2RM/3RM)\n– Gants (2RM/3RM)\n– Gants + Airbag (2RM/3RM)\n– Non déterminable\n– Autre\n\nlocp\nLocalisation du piéton :\n-1 – Non renseigné 0 – Sans objet\nSur chaussée :\n– A + 50 m du passage piéton\n– A – 50 m du passage piéton\nSur passage piéton :\n– Sans signalisation lumineuse\n– Avec signalisation lumineuse\nDivers :\n– Sur trottoir\n– Sur accotement\n– Sur refuge ou BAU\n– Sur contre allée\n– Inconnue\n\nactp\nAction du piéton :\n-1 – Non renseigné\nSe déplaçant\n– Non renseigné ou sans objet\n– Sens véhicule heurtant\n– Sens inverse du véhicule\nDivers\n– Traversant\n– Masqué\n– Jouant – courant\n– Avec animal 9 – Autre\nA – Monte/descend du véhicule\nB – Inconnue\n\netatp\nCette variable permet de préciser si le piéton accidenté était seul ou non :\n-1 – Non renseigné\n– Seul\n– Accompagné\n– En groupe",
+          "Comme on ne connaît pas vraiment la nature des accidents de type 'Autre', on peut affirmer que les accidents les plus fréquents sont les collisions par le côté impliquant deux véhicules.\nB - Date et heure des accidents\nNotre DataFrame contient les colonnes an, mois et jour, ce qui nous permet de connaître la date à laquelle a eu lieu chaque accident.\nOn rappelle que :\nLa fonction to_datetime du package pandas permet de générer des dates à partir de chaînes de caractères.\nLa fonction plot_date du package matplotlib permet de tracer des courbes à partir de dates.\n(c) Dans une nouvelle colonne 'date', stocker la date à laquelle a eu lieu chaque accident.\nConvertir les colonnes en chaînes de caractères puis les concaténer sous la forme 'jour-mois-an'.\nConvertir la nouvelle colonne obtenue en datetime.\n(d) Compter le nombre d'accidents pour chaque date.\nPour pouvoir afficher un graphique chronologique, il faut ordonner les valeurs selon les dates en indices.\n(e) Afficher le nombre d'accidents par jour grâce à la fonction plot_date."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA111 8.Matplotlib Ajouter du texte et des annotations",
+        "description": "Learn from notebook: DA111 8.Matplotlib Ajouter du texte et des annotations",
+        "initialCode": "### Veuillez exécuter cette case avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA111 6.Matplotlib Boîtes à Moustaches (Box Plots) et Camemberts (Pie Plots)",
+        "description": "Learn from notebook: DA111 6.Matplotlib Boîtes à Moustaches (Box Plots) et Camemberts (Pie Plots)",
+        "initialCode": "Introduction à la visualisation de données avec Matplotlib\nBoîtes à Moustaches (Box Plots) et Camemberts (Pie Plots)",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA115 1.L'art du data storytelling",
+        "description": "Learn from notebook: DA115 1.L'art du data storytelling",
+        "initialCode": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n%matplotlib inline",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "plt.figure(figsize=(30,15))\n\nplt.subplot(221)\nsns.countplot(x = 'cat_Customers', data = df);\n\nplt.subplot(222)\nsns.countplot(x = 'cat_Sales', data = df);"
+      },
+      {
+        "title": "DA114 .3.Matplotlib Les graphiques datés",
+        "description": "Learn from notebook: DA114 .3.Matplotlib Les graphiques datés",
+        "initialCode": "### Veuillez exécuter cette cellule de code avant de commencer l'exercice \n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "import datetime as dt\nfig = plt.figure( figsize = (12, 4))\nax1 = fig.add_subplot(111)\ndates = [dt.datetime(2016,1,1) + dt.timedelta(days=30*i) for i in range(12)]\nval = np.random.rand(len(dates))\nax1.plot_date(dates, val, linestyle='-');"
+      },
+      {
+        "title": "DA111 4.Matplotlib Nuages de points (Scatter plots)",
+        "description": "Learn from notebook: DA111 4.Matplotlib Nuages de points (Scatter plots)",
+        "initialCode": "\nIntroduction à la visualisation de données avec Matplotlib\nNuages de points (Scatter plots)",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "df.plot.scatter(x='Sales_Volume', y='Region_Name', s=30, cmap = 'viridis');\n\n# L'ajout de cmap permet de choisir une palette de couleurs, parmi toutes celles disponibles.\n"
+      },
+      {
+        "title": "DA113 .4.Bokeh Les sources de Data et ses transformations",
+        "description": "Learn from notebook: DA113 .4.Bokeh Les sources de Data et ses transformations",
+        "initialCode": "# Importation des fonctions dont l'on se servira pour toutes les figures\n\nfrom bokeh.plotting import figure, output_notebook, show\n\n# Précision de l'affichage des graphiques dans des cellules jupyter\n\noutput_notebook()",
+        "hints": [
+          "L'outil HoverTool (suite)\nLa classe HoverTool permet d'afficher des informations supplémentaires dans une fenêtre contextuelle lorsque l'utilisateur survole avec le curseur un graphique issu d'une méthode glyph. Cet objet doit s'instancier avec un paramètre tooltips qui représente une liste de tuples.\nOn rappelle que chaque tuple de la liste tooltips sert à définir une information qui s'affichera dans la fenêtre contextuelle lorsque l'on survolera le dessin.\nLe premier élément d'un tuple de la liste est une chaîne de caractères correspondant au nom de l'information à afficher, le second élément est lui aussi une chaîne de caractères correspondant à l'adresse de l'information à afficher.\nLa syntaxe pour le second élément est la suivante:\n'@variable': Signifie que l'on pointe vers la colonne 'variable' contenue dans la source.\n$variable: Signifie que l'on pointe vers un élément indépendant de la source et des éléments du graphe. Par exemple $x va pointer vers l'abscisse du curseur ou $index qui pointe vers l'index du point indépendemment de l'index de la source.\nPour plus d'infos sur la configuration de l'objet HoverTool et la liste des éléments indépendants sur lesquels on peut pointer via $: regarder ici.\nL'outil Hovertool peut directement être ajouté à la liste d'outils au moment de la création d'une figure. Pour ce faire, il suffit de spécifier le paramètre tools lors de l'instanciation d'une figure. Ce paramètre prend en argument une liste d'outils (comme HoverTool) ou de chaînes de caractères pour des outils prédéfinis (comme 'wheel_zoom' pour zoomer avec la molette de la souris).\nOn rappelle aussi qu'il est possible de rajouter un argument dans un objet de type HoverTool qui précise sur quels graphiques appliquer celui-ci. Il s'agit du paramètre renderers qui prend en argument une liste de GlyphRenderers. Par défaut, l'outil sera ajouté à tous les dessins présents sur la figure.\nImporter l'objet HoverTool du sous-module bokeh.models.\nCréer une liste de tuples représentant les éléments 'indices', 'x', 'y' contenus dans source.\nInstancier une figure de largeur 600 et hauteur 400 et y instancier un nuage de points en forme de cercles à partir du ColumnDataSource source. Stocker le GlyphRenderer généré dans une variable nommée c.\nInstancier un HoverTool nommé  hover qui permet d'afficher les indices, les abscisses et les ordonnées sur le nuage associé à c. On rappelle que le paramètre renderers prend en argument une liste de GlyphRenderers.\nAjouter l'outil à la liste des outils de la figure et l'afficher."
+        ],
+        "solution": "# Importation de la fonction row\n\nfrom bokeh.layouts import row\n\n# Création des données\n\nx = np.arange(1, 6, 0.2)       # suite x d'abscisses\n\ndata = { 'x': x,\n         'y1': x**3,\n         'y2': 1/x ,\n         'y3': x**5}\n\nsource = ColumnDataSource(data = data)               \n\n# Liste des outils à ajouter\n\ntools = [\"box_select\" , \"lasso_select\"]\n\n# Instanciation de la première figure   \n\np1 = figure(plot_width = 300, plot_height = 300,      # dimensions de la figure\n            tools = tools)                            # ajout des outils\n\n# Instanciation de la seconde figure \n\np2 = figure(plot_width = 300, plot_height = 300,\n            tools = tools)\n\n# Instanciation de la troisème figure\n\np3 = figure(plot_width = 300, plot_height = 300,\n            tools = tools)\n\n# Instanciation des trois nuages\n\np1.circle('x', 'y1',\n          source = source)\n\np2.circle('x', 'y2',\n          color = 'red',\n          source = source)\n    \np3.circle('x', 'y3',\n          color = 'green',\n          source = source)\n\n# Affichage des trois figures\n\np = row(p1, p2, p3)\n\nshow(p)"
+      },
+      {
+        "title": "DA113 .5.Bokeh Les barplots",
+        "description": "Learn from notebook: DA113 .5.Bokeh Les barplots",
+        "initialCode": "# Importation des fonctions dont on se servira pour toutes les figures\n\nfrom bokeh.plotting import figure, output_notebook, show\nfrom bokeh.models import ColumnDataSource, HoverTool, CategoricalColorMapper\n\n# Précision de l'affichage des graphiques dans des cellules jupyter\n\noutput_notebook()",
+        "hints": [
+          "Barres groupées\nBokeh permet aussi de créer des diagrammes à barres groupées. C'est à dire des diagrammes où plusieurs valeurs peuvent être associées à la même modalité. Nous allons créer un diagramme à barres groupées verticales.\nTout d'abord, il faut créer une liste de couples telle que :\nLe premier indice du couple correspond à la modalité.\nLe second indice du couple correspond à la valeur dans la modalité.\nCette liste servira à définir les abscisses de la figure.\n    modalites = ['A', 'B']                                      liste de modalités\n    valeurs = ['valeur 1', 'valeur 2', 'valeur 3']              liste des valeurs\n    x = [(i, j) for i in modalites for j in valeurs]    création de la liste de couples par compréhension\nL'instruction précédente génère la liste:\n    [('A','valeur 1'), ('A','valeur 2'), ('A','valeur 3'), ('B','valeur 1'), ('B','valeur 2'), ('B','valeur 3')]\nLa définition des ordonnées se fait grâce à une liste où chaque élément est la valeur associée à chaque couple (modalité, valeur) crée dans l'instruction précédente.\n    ordonnees = [2,     ordonnée de ('A', 'valeur 1')\n                 5,     ordonnée de ('A', 'valeur 2')\n                 3,     ordonnée de ('A', 'valeur 3')\n                 1,     ordonnée de ('B', 'valeur 1')\n                 3,     ordonnée de ('B', 'valeur 2')\n                 2]     ordonnée de ('B', 'valeur 3')\nUne fois que ces listes ont été créées, il faut préciser à la figure le format que devra prendre l'axe des abscisses. Pour cela, on utilise la classe FactorRange contenue dans le sous-module bokeh.models.\n    from bokeh.models import FactorRange\n    factor_range = FactorRange(factors = x)\n    p = figure(x_range = factor_range,\n               plot_width = 600, plot_height = 400)\nNous pouvons maintenant instancier un diagramme à barres verticales:\n    source = ColumnDataSource({\n        'x' : x,\n        'top' : ordonnees})\n    p.vbar(x = 'x',\n           top = 'top',\n           width = 0.9,\n           source = source)\nA partir des listes modalites et valeurs fournies dans la cellule suivante, créer par compréhension une liste d'abscisses contenant les couples (modalité, valeur) pour chaque modalité et valeurs qu'elles peuvent prendre.\nA partir des listes valeur1, valeur2 et valeur3, créer la liste des ordonnées de chaque couple (modalité, valeur).\nInstancier un ColumnDataSource contenant les listes d'abscisses et d'ordonnées créées dans les questions précédentes."
+        ],
+        "solution": "# Listes de données\n\npays = ['Etats-Unis', 'France', 'Allemagne', 'Royaume-Uni']     # modalités\nrecompenses = ['fields', 'nobels', 'coupes_fifa']               # noms des valeurs prises par chaque modalité\n\n\nvaleur1 = [14, 12, 2, 7]                # nombre de médaille fields pour chaque pays\nvaleur2 = [11, 17, 15, 13]              # nombre de prix nobels en littérature pour chaque pays\nvaleur3 = [0, 2, 4, 1]                  # nombre de coupes du monde FIFA pour chaque pays\n\ncouleurs = ['red', 'green', 'blue']     # couleur de chaque diagramme\n\nlegendes = [\"Médailles Fields\", \"Prix Nobels de littérature\", \"Coupes du monde FIFA\"]  # légende de chaque diagramme\n\n# Instanciation de l'objet ColumnDataSource\n\nsource = ColumnDataSource({\n        'pays': pays,\n        'fields': valeur1,\n        'nobels': valeur2,\n        'coupes_fifa': valeur3\n                          })\n\n# Instanciation de la figure\n\np = figure(x_range = pays,\n           plot_width = 600, plot_height = 400)\n\n# Instanciation du diagrammes à barres empilées\n\np.vbar_stack(stackers = recompenses,      # ordonnées\n             x = 'pays',                  # abscisses\n             width = 0.9,                 # épaisseur\n             color = couleurs,            # couleurs\n             source = source,             # source des données\n             legend_label = [\"Médailles Fields\", \"Prix Nobels de littérature\", \"Coupes du monde FIFA\"])\n\n\n# Configuration de la légende et de la grille\n\np.legend.location = \"top_right\"\np.legend.orientation = \"vertical\"\n\np.xgrid.grid_line_color = None\n\n# Affichage de la figure\n\nshow(p)"
+      },
+      {
+        "title": "DA112 1.Seaborn Analyse de distrubution univariée",
+        "description": "Learn from notebook: DA112 1.Seaborn Analyse de distrubution univariée",
+        "initialCode": "%matplotlib inline\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n",
+        "hints": [
+          "Data visualization avec Seaborn\nDistribution univariée \nSeaborn est une bibliothèque Python pour la visualisation de données, spécialisée dans l'analyse statistique. \nBasée sur la bibliothèque Matplotlib, elle est totalement adaptée aux DataFrames de Pandas. \nAinsi, au-delà d'une interface visuellement améliorée, Seaborn permet de produire rapidement et intuitivement des graphiques de qualité.\nCette bibliothèque utilise des thèmes par défaut esthétiquement agréables, et permet de créer facilement ses propres palettes de couleurs.\nSeaborn permet ainsi d'apprendre à connaître un jeu de données de manière rapide et efficace, mais n'a pas vocation à remplacer Matplotlib. \nAinsi, comme la plupart des fonctions de la première utilise des fonctions de la seconde, certaines modifications ou personnalisations sous Seaborn requerront un appel à Matplotlib.\nLes données utilisées dans ce cours concernent des joueurs de NBA et leurs performances pour la saison 2013-2014. Le dataset contient une vingtaine de variables qui correspondent pour la plupart aux caractéristiques relatives aux profils des joueurs et de leurs équipes, ainsi qu'à leurs performances sur le terrain.\nParmi les 21 variables, on a entre autres pour chaque joueur :\nplayer : Prénom et Nom du joueur.\nage : L'âge du joueur au début de la saison.\npos : Le poste du joueur au sein de son équipe: Meneur (PG: point guard), Arrière (SG: shooting guard), Pivot (C: center) etc...\ng : Nombre de matchs joués.\ngs : Nombre de matchs débutés.\nmp : Nombre de minutes jouées par saison.\nfg. : Pourcentage de field goals (paniers tirés autres que lancers francs) réussis\ntov : Nombre de récupérations de ballons.\npo : NP si l'équipe n'a pas atteint les playoffs, FT si elle a atteint les deux premiers tours des playoffs, F si elle a atteint la finale de sa conférence.\nconf : La \"conférence\" à laquelle l'équipe appartient (Est/Ouest).\netc...\nToutes les abréviations utilisées concernant le basket-ball sont définies ici.\n(a) Importer les packages numpy, pandas et matplotlib.pyplot.\n(b) Importer seaborn sous son abréviation commune sns.\n(c) Lire dans un DataFrame appelé df, le fichier 'nba_sb2.csv', en utilisant la première colonne comme indices."
+        ],
+        "solution": "# Visualiser le nombre de joueurs appartenant à chaque catégorie de la variable 'po', en fonction des différents postes (variable 'pos').\nsns.countplot(x='Pos', data=df_nba_2, palette='Set2');"
+      },
+      {
+        "title": "DA115 2.L'art du data storytelling",
+        "description": "Learn from notebook: DA115 2.L'art du data storytelling",
+        "initialCode": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n%matplotlib inline",
+        "hints": [
+          "Bonne nouvelle les deux semblent sensibles aux promotions. Remarquons que le panier élargi présente une plus forte variation avec un accroissement des ventes plus important en période de promotion. L'idée d'être plus agressif sur ce type de panier permettrait d'accroître encore les ventes. Cependant cela reste conditionné à la performance des deux paniers.\nEn observant le deuxième graphe on voit que la tendance se confirme, l'indice de performance s'améliore plus nettement sur le panier élargi.\nIl reste une information à vérifier : l'influence des concurrents sur les ventes. Nous disposons de la variable CompetitionDistance qui renseigne la distance du plus proche magasin concurrent. Il s'agit ici d'identifier si la concurrence est plus un moteur ou un frein pour le développement de nos magasins.\nPour visualiser cette information facilement, on va se servir de nuages de points en pondérant la taille des points par la distance du concurrent le plus proche.\n(r) Afficher dans 3 graphes différents Sales,Customer et performance de agg_store en fonction de la variable Store en pondérant la taille des points avec CompetitionDistance. Il est conseillé d'utiliser scatterplot de seaborn. L'attribut size permettra de pondérer les points.\n   Exemple d'utilisation :  scatterplot(x = name_var_1, y = name_var_2, data = df, size = name_var_3, sizes=(120, 4000), legend = False)",
+          "Deux approches possibles :\nEn termes de vente et de clients il semble que les magasins proches de concurrents vendent et attirent le plus. On peut penser en toute logique que plusieurs concurrents à côté tirent les ventes vers le haut.\nEn termes de performance les magasins plutôt éloignés de leurs concurrents ont de meilleurs scores. Si un client vient il achète plus étant donné que la distance des concurrents l’empêche de diversifier.\nEnfin il est important de regarder l'impact des jours fériés et vacances scolaires par magasin. Comme pour les promotions nous allons regarder l'indice de performance en période de vacances scolaires ou non. Il est recommandé d'utiliser un histogramme pour rapidement saisir l'information.\n(s) En utilisant la variable SchoolHoliday stocker dans un tableau nommé agg_conges les ventes, le nombre de clients et la performance de chaque magasin en période de vacances scolaires ou non.\n(t) Afficher la peformance pour chacun des magasins en période de vacances scolaires en vous servant de catplot de seaborn."
+        ],
+        "solution": "liste_jours_feries = ['b','c']\nagg_ferie = df.loc[(df[\"StateHoliday\"] == 'a') & (df[\"Sales\"] > 0)][['Store','Sales']]\n\nfor i in liste_jours_feries :\n    tmp = df.loc[(df[\"StateHoliday\"] == i) & (df[\"Sales\"] > 0)][['Store','Sales']]\n    agg_ferie = pd.concat([agg_ferie, tmp])\n    \nagg_ferie = agg_ferie.groupby('Store',as_index = False).sum()\nagg_ferie"
+      },
+      {
+        "title": "DA114 .4.Matplotlib Texte, polices et LaTeX",
+        "description": "Learn from notebook: DA114 .4.Matplotlib Texte, polices et LaTeX",
+        "initialCode": "### Veuillez exécuter cette cellule de code avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# Exemple : Texte au format LaTeX\nfig = plt.figure()\nax= fig.add_subplot(111)\nax.text(0.1, 0.5, r\"$ f(x,y) = x^2 + 3 \\times \\cos(y) $\", fontsize=22)"
+      },
+      {
+        "title": "DA112 3.Seaborn Analyse statistique multivariée(2)",
+        "description": "Learn from notebook: DA112 3.Seaborn Analyse statistique multivariée(2)",
+        "initialCode": "## Lancer la cellule pour importer les packages/fichiers nécessaires\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n%matplotlib inline \nimport seaborn as sns\n\nsns.set_theme() # pour modifier le thème\ndf_1 = pd.read_csv(filepath_or_buffer='/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/DATA_SET_CSV/NBA_DATASCIENTEST/NBA_Stats_CumeStats_1670495253511.csv', sep=';',header= 1, index_col=0)\ndf = pd.read_csv(filepath_or_buffer='/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/DATA_SET_CSV/NBA_DATASCIENTEST/2021-2022 NBA Player Stats - Playoffs.csv', sep=';', index_col=0)\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# Afficher la heat map des corrélations de toutes les variables quantitatives de df.\n# Copilot code suggéré :\ncor = df.corr()\nfig, ax = plt.subplots(figsize=(20,20))\nsns.heatmap(cor, annot=True, cmap=plt.cm.Reds)\n\n# Datascientest code suggéré :\ncor = df_1.corr()\nfig, ax = plt.subplots(figsize=(20,20))\nsns.heatmap(cor, annot=True, ax=ax, cmap='coolwarm')\n"
+      },
+      {
+        "title": "DA111 7.Matplotlib Subplots et Graphiques emboîtés",
+        "description": "Learn from notebook: DA111 7.Matplotlib Subplots et Graphiques emboîtés",
+        "initialCode": "### Veuillez exécuter cette cellule avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA111 5.Matplotlib Histogrammes",
+        "description": "Learn from notebook: DA111 5.Matplotlib Histogrammes",
+        "initialCode": "Introduction à la visualisation de données avec Matplotlib¶\nHistogrammes\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "df.plot.hist(y=['NA_Sales', 'JP_Sales', 'EU_Sales'], bins = [1, 1.5, 2, 2.5,  3, 3.5,  4, 4.5], rwidth = 0.8 , color= ['#ffda90', '#9796ed', '#5ba6a6'], alpha=0.5);\ndf.plot.hist(y=['NA_Sales', 'JP_Sales', 'EU_Sales'], bins = [1, 1.5, 2, 2.5,  3, 3.5,  4, 4.5], subplots=True, rwidth = 0.8 , color= ['#ffda90', '#9796ed', '#5ba6a6'], alpha=0.5);\n\ndf.hist(column=['NA_Sales', 'JP_Sales', 'EU_Sales'], bins = [1, 1.5, 2, 2.5,  3, 3.5,  4, 4.5], rwidth = 0.8 , color= ['#e7607c']);"
+      },
+      {
+        "title": "DA113 .8.Bokeh Créer des widgets liés",
+        "description": "Learn from notebook: DA113 .8.Bokeh Créer des widgets liés",
+        "initialCode": "# Importation des fonctions dont l'on se servira pour toutes les figures\nfrom bokeh.plotting import figure, output_notebook, show\n\n# Précision de l'affichage des graphiques dans des cellules jupyter\noutput_notebook()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "      # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #\n      #                                                               #\n      #                Code de la question précédente                 #\n      #                                                               #\n# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #\n                                                                            #\nimport numpy as np                                                          #\n                                                                            #\n# Instanciation d'un Slider                                                 # \n                                                                            #\nslider = Slider(start = -6*np.pi,    # valeur minimale                      #\n                end = 6*np.pi,       # valeur maximale                      #\n                value = 0,           # valeur d'initialisation              #\n                step = 0.1,          # pas                                  #\n                title = 'Slider')    # titre                                #\n                                                                            #\n# Listes de coordonnées                                                     #\n                                                                            #\nx = np.linspace(-6*np.pi, 6*np.pi, 1000)                                    #\ny = np.sin(x)                                                               #\n                                                                            #\n# Instanciation d'une figure                                                #\n                                                                            #\np = figure(plot_width = 600, plot_height = 400)                             #\n                                                                            #\n# Instanciation d'une courbe                                                #\n                                                                            #\np.line(x,                    # absisses                                     #\n       y,                    # ordonnées                                    #\n       line_width = 2,       # épaisseur de tracé                           #\n       line_alpha = 0.6)     # opacité de tracé                             #\n                                                                            #\n# Instanciation d'un Span                                                   #\n                                                                            #\nfrom bokeh.models.annotations import Span                                   #\n                                                                            #\nspan = Span(location = slider.value,   # position                           #  \n            dimension = 'height',      # direction                          #\n            line_width = 2)            # épaisseur de tracé                 #\n                                                                            #                     \n# Ajout du Span aux annotations de la figure                                #\n                                                                            #\np.add_layout(span)                                                          #\n                                                                            #\n# Instanciation d'une colonne de deux figures                               #\n                                                                            #\nfrom bokeh.layouts import column                                            #\n                                                                            #\ncol = column(p, slider)                                                     # \n                                                                            #\n# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                                                                         \n\nfrom bokeh.models import CustomJS\n\n# Dictionnaire d'arguments\n\ndictionnaire = {'spantest' : span,\n                'slidertest' : slider}\n\n# Code JavaScript\n\ncode = 'spantest.location = slidertest.value'\n\n# Instanciation du CustomJS\n\nCJS = CustomJS(args = dictionnaire,\n               code = code)\n\n# Affectation de l'objet CustomJS au slider\n\nslider.js_on_change('value', CJS)                                     \n\n# Affichage de la colonne\n\nshow(col)"
+      },
+      {
+        "title": "DA114 .5.Matplotlib Contour plots",
+        "description": "Learn from notebook: DA114 .5.Matplotlib Contour plots",
+        "initialCode": "### Veuillez exécuter cette cellule de code avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "x , y = np.linspace(-1,1,200), np.linspace(-1,2,200)\nX, Y = np.meshgrid(x,y)\nZ = (1-X)**2+(Y-X**2)**2\nplt.contourf(X,Y,Z,20)\nplt.colorbar()\nplt.title('Fonction de Rosenbrock');"
+      },
+      {
+        "title": "DA112 2.Seaborn Analyse statistique multivariée",
+        "description": "Learn from notebook: DA112 2.Seaborn Analyse statistique multivariée",
+        "initialCode": "## Lancer la cellule pour importer les packages/fichiers nécessaires\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n%matplotlib inline\nimport seaborn as sns\n\nsns.set_theme() # pour modifier le thème\n\ndf = pd.read_csv(filepath_or_buffer='/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/DATA_SET_CSV/NBA_DATASCIENTEST/2021-2022 NBA Player Stats - Playoffs.csv', sep=';', index_col=0)",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# Afficher les mêmes courbes que précédemment (x='mp', y='pf', style='pos', hue ='pos'), mais en séparant les graphiques en fonctions de la colonne 'pos' et en gardant au maximum 3 graphiques par ligne.\n# Datascientest a généré le code suivant:\nsns.relplot(x='MP', y='PF', hue='Pos', col='Pos', col_wrap=2, data=df, height=2, aspect=1.5, style='Pos', kind='line', ci=None, estimator=None);"
+      },
+      {
+        "title": "DA114 .1.Matplotlib Introduction aux classes et objets",
+        "description": "Learn from notebook: DA114 .1.Matplotlib Introduction aux classes et objets",
+        "initialCode": "### Veuillez exécuter cette cellule de code avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "fig,axes = plt.subplots(2,2,sharex=True,sharey=True)\n# Les 4 sous-graphiques sont créés.\n# Sharex et sharey indiquent que les sous-graphiques\n# ont des axes paramétrés de la même manière\n\nfor i in range(2):\n    for j in range(2):\n        axes[i,j].hist(np.random.randn(500), bins=50, color='black', alpha=0.5)\n# L'objet \"axes\" est un array 2d, simple à indicer et parcourir avec une boucle\n\n"
+      },
+      {
+        "title": "DA113 .1.Bokeh Introduction ",
+        "description": "Learn from notebook: DA113 .1.Bokeh Introduction ",
+        "initialCode": "from bokeh.plotting import figure\nfrom bokeh.io import  push_notebook,output_notebook, show\noutput_notebook()  # pour un affichage en ligne",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "import scipy.special\n\nType = ['Dark','Electric','Fire','Grass','Ice','Rock','Water']\ncolor = ['darkorchid','yellow','darkorange','green','lightcyan','maroon','blue']\n\np = figure(title=\"attack hist per type\",background_fill_color=\"lightcyan\")\n\nfor i in Type :\n    histogram, edges = np.histogram(df[df['Type 1']== i]['Attack'] , density=True, bins=50)\n    source = ColumnDataSource(data=dict(histogram=histogram,left = edges[:-1], right = edges[1:]))\n    p.quad( top = 'histogram', bottom = 0, left = 'left', right = 'right', \n             fill_color = color[Type.index(i)] , line_color = \"black\",\n           source=source,hover_line_color=\"white\",hover_fill_color='red',legend_label=str(i))\n    hover = HoverTool(tooltips = [('valeur ', '@histogram'),\n                          ('abscice', '$x')])\n    p.add_tools(hover)\n\np.legend.click_policy=\"hide\"\nshow(p)"
+      },
+      {
+        "title": "DA111 3.Matplotlib Graphiques en barres (Bar plots)",
+        "description": "Learn from notebook: DA111 3.Matplotlib Graphiques en barres (Bar plots)",
+        "initialCode": "### Veuillez exécuter cette cellule avant de commencer l'exercice\n%matplotlib inline\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "data = np.random.randn(30).cumsum()\nplt.plot(data,'v--', label='Default')\nplt.plot(data,'r--', drawstyle='steps-post', label='steps-post')\nplt.legend(loc='best')\n"
+      },
+      {
+        "title": "DA111 1.Matplotlib Tracer des courbes avec Matplotlib",
+        "description": "Learn from notebook: DA111 1.Matplotlib Tracer des courbes avec Matplotlib",
+        "initialCode": "Introduction à la visualisation de données avec Matplotlib \nTracer des courbes avec Matplotlib \nIntroduction\nBienvenue dans ce cours dédié aux bases de la Data Visualization avec Python grâce à sa principale bibliothèque dédiée : Matplotlib. \nMatplotlib est un puissant outil pour tracer des graphiques et visualiser des données. Elle est destinée à produire des graphiques de toutes sortes (voir ici pour une galerie d'images produites avec Matplotlib)\nMatplotlib contient la sous-bibliothèque pyplot qui crée une interface proche de celle du logiciel commercial Matlab et qui contient des fonctions très similaires à celui-ci.\nPar ailleurs, Matplotlib est une bibliothèque très riche, toutes ses fonctionnalités ne peuvent être traitées. Cette formation fait le choix d'explorer certaines fonctions plus que d'autres, l'objectif général étant de rendre un datascientist autonome sur le module en fin de formation.\nPour afficher un graphique, il faut nécessairement commencer par importer le module matplotlib.pyplot. Par convention, il est toujours importé sous le nom raccourci de 'plt'. \nUne fois un graphique construit, c'est l'instruction plt.show() qui permettra de le visualiser.\nCependant, sur un Notebook Jupyter, rajouter en début de page %matplotlib inline permet d'afficher automatiquement les figures lors de l'exécution d'une cellule contenant un appel à une commande pyplot,.\nDans les exercices suivants, nous utiliserons également les bibliothèques numpy et pandas.\nAinsi chaque notebook aura comme préambule type la cellule suivante, à exécuter:",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "En résumé: \n\nPour tracer des courbes avec Matploltib on utilise la fonction plt.plot(), qui fonctionne aussi bien avec une liste, un numpy array ou une Pandas Series.\nIl est possible de délimiter les axes des abscisses et des ordonnées grâce à xlim et ylim, et de leur donner des titres grâce à xlabel et ylabel.\nLes Dataframes pandas permettent de tracer des courbes plus facilement et plus intuitivement, à l'aide de méthodes intégrées qui utilisent Matplotlib en background."
+      },
+      {
+        "title": "DA111 .EXAMEN 3",
+        "description": "Learn from notebook: DA111 .EXAMEN 3",
+        "initialCode": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA112 .EXAMEN - Corrigé",
+        "description": "Learn from notebook: DA112 .EXAMEN - Corrigé",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA113 .9.Bokeh Le dresseur Pokémon",
+        "description": "Learn from notebook: DA113 .9.Bokeh Le dresseur Pokémon",
+        "initialCode": "from bokeh.plotting import figure\nfrom bokeh.io import  push_notebook,output_notebook, show\noutput_notebook()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "import scipy.special\n\nType = ['Dark','Electric','Fire','Grass','Ice','Rock','Water']\ncolor = ['darkorchid','yellow','darkorange','green','lightcyan','maroon','blue']\n\np = figure(title=\"attack hist per type\",background_fill_color=\"lightcyan\")\n\nfor i in Type :\n    histogram, edges = np.histogram(df[df['Type 1']== i]['Attack'] , density=True, bins=50)\n    source=ColumnDataSource(data=dict(histogram=histogram,left = edges[:-1], right = edges[1:]))\n    p.quad( top = 'histogram', bottom = 0, left = 'left', right = 'right', \n             fill_color = color[Type.index(i)] , line_color = \"black\",\n           source=source,hover_line_color=\"white\",hover_fill_color='red',legend=str(i))\n    hover = HoverTool(tooltips = [('valeur ', '@histogram'),\n                          ('abscice', '$x')])\n    p.add_tools(hover)\n\np.legend.click_policy=\"hide\"\nshow(p)"
+      },
+      {
+        "title": "DA112 5.Seaborn Graphique multiples",
+        "description": "Learn from notebook: DA112 5.Seaborn Graphique multiples",
+        "initialCode": "## Lancer la cellule pour importer les packages/fichiers nécessaires\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n%matplotlib inline\nimport seaborn as sns\n\nsns.set_theme() # pour modifier le thème\n\ndf = pd.read_csv(filepath_or_buffer='/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/DATA_SET_CSV/NBA_DATASCIENTEST/2021-2022 NBA Player Stats - Regular.csv', sep=';', index_col=0)",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA113 .3.Bokeh Ajout de texte et annotations",
+        "description": "Learn from notebook: DA113 .3.Bokeh Ajout de texte et annotations",
+        "initialCode": "# Importation des fonctions dont on se servira pour toutes les figures\n\nfrom bokeh.plotting import figure, output_notebook, show\n\n# Précision de l'affichage des graphiques dans des cellules jupyter\n\noutput_notebook()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# Importation de la fonction gridplot\n\nfrom bokeh.layouts import gridplot\n\n# Définition de la grille\n\ng = gridplot([[p1], [p2, p3]])\n\n# Affichage de la grille\n\nshow(g)"
+      },
+      {
+        "title": "DA113 .7.Bokeh Graphiques usuels",
+        "description": "Learn from notebook: DA113 .7.Bokeh Graphiques usuels",
+        "initialCode": "from bokeh.io import output_notebook, show\nfrom bokeh.plotting import figure\nimport numpy as np\nimport pandas as pd\n\noutput_notebook()",
+        "hints": [
+          "Nous allons maintenant appliquer à notre jeu de données les transformations nécessaires pour ajouter une bande.\nL'objectif de cette bande est de visualiser rapidement plusieurs informations : la moyenne des 100 dernières observations à chaque instant, mais aussi leur écart-type afin de mettre en valeur certains indices de tendance ou saisonnalité.\nPuisque nous avons généré nos données aléatoirement, il sera impossible d'apercevoir ces indices mais le principe reste le même pour de \"vraies\" séries temporelles.\nInstancier un objet ColumnDataSource à partir de df.\nInstancier une figure de largeur 600 et hauteur 400, de titre \"Rolling Standard Deviation\".\nA l'aide de la méthode glyph scatter, instancier un nuage de points à partir des colonnes x et y de la source tel que l'opacité du contour des points soit de 0, l'opacité de l'intérieur des points soit de 0.3 et la taille des points soit de 5.\nA l'aide de la méthode glyph line, instancier une courbe de couleur rouge et d'épaisseur 0.9 à partir des colonnes x et y_mean de la source.\nCréer dans df la colonne 'lower', qui prend la valeur y_mean - y_std.\nCréer dans df la colonne 'upper', qui prend la valeur upper = y_mean + y_std.\nImporter la classe Band depuis le sous-module bokeh.models.\nInstancier un objet de type Band à partir de la source avec les paramètres:\nbase = 'x' : abscisses sur lesquelles s'étend la bande.\nlower = 'lower' : ordonnées inférieures de la bande.\nupper = 'upper' : ordonnées supérieures de la bande.\nlevel = 'underlay' : pour que la bande soit affichée en arrière-plan.\nfill_alpha = 1 : opacité du remplissage de la bande.\nline_color = 'black' : couleur des bords de la bande.\nAjouter la bande aux annotations de la figure grâce à sa méthode add_layout.\nAfficher la figure."
+        ],
+        "solution": "# Instanciation de la source\n\nsource = ColumnDataSource(df)\n\n# Instanciation de la figure\n\np = figure(title = \"Rolling Standard Deviation\",\n           plot_width = 600, plot_height = 400)\n\n# Instanciation du nuage de points\n\np.scatter(x = 'x',             # abscisses\n          y = 'y',             # ordonnées\n          line_alpha = 0,      # opacité du contour\n          fill_alpha = 0.3,    # opacité de remplissage\n          size = 5,            # taille\n          source = source)     # source des données\n\n# Instanciation de la courbe\n\np.line(x = 'x',                # abscisses\n       y = 'y_mean',           # ordonnées\n       line_color = 'red',     # couleur du tracé\n       line_width = 0.9,       # épaisseur du tracé\n       source = source)        # source des données\n\n# Création des colonnes d'ordonnées inférieures et supérieures\n\ndf['lower'] = df.y_mean - df.y_std      # moyenne - écart-type\ndf['upper'] = df.y_mean + df.y_std      # moyenne + écart-type\n\n# Importation de la classe Band\n\nfrom bokeh.models import Band\n\n# Instanciation de la bande\n\nband = Band(base = 'x',             # abscisses\n            lower = 'lower',        # ordonnées inférieures\n            upper = 'upper',        # ordonnées supérieures\n            level = 'underlay',     # plan d'affichage\n            fill_alpha = 1.0,       # opacité du remplissage\n            line_color = 'black',   # couleur des bords\n            source = source)        # source des données\n\n# Ajout de la bande aux annotations de la figure\n\np.add_layout(band)\n\n# Affichage de la figure\n\nshow(p)"
+      }
+    ]
+  },
+  "level4": {
+    "title": "Level 4: Level 4 Machine Learning",
+    "content": "Advanced content from Level_4_Machine_Learning",
+    "exercises": [
+      {
+        "title": "DA121 .4.Scikit-learn Méthode des k plus proches voisins",
+        "description": "Learn from notebook: DA121 .4.Scikit-learn Méthode des k plus proches voisins",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA120 .2.Scikit-learn API Scikit-learn",
+        "description": "Learn from notebook: DA120 .2.Scikit-learn API Scikit-learn",
+        "initialCode": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\n%matplotlib inline\n\ndf = pd.read_csv('/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/diabetes.csv')\n\ndf.head()\n",
+        "hints": [
+          "Machine Learning pour les Data Analysts \nIntroduction à l'API Scikit-Learn \n1. Introduction\nNous venons de voir les bases du Machine Learning à savoir :\nQuelle est la différence entre l'apprentissage supervisé et non supervisé ? \n\nQuelle est la différence entre la régression et la classification ? \n\nQu'est-ce qu'une variable cible ? des variables explicatives ? \n\nQu'est-ce que la technique de Hold out ?\nNous allons voir dans ce notebook comment implémenter un modèle de base de Machine Learning en classification et en régression avec la librairie Scikit-Learn.\nL'objectif de ce notebook est de :\nComprendre l'utilité et la puissance de Scikit-Learn ; \n\nEntraîner un modèle de classification avec Scikit-Learn ; \n\nEntraîner un modèle de régression avec Scikit-Learn.\n1.1 Scikit-Learn\nScikit-Learn est une librairie Python construite à partir de NumPy, Scipy et matplotlib pour entrainer des modèles de Machine Learning le plus simplement possible. Chaque modèle dispose de sa propre classe qu'il faut instancier pour créer un modèle.\nToutes les classes de modèles de Scikit-Learn disposent des trois méthodes suivantes:\nfit : Entraîne le modèle sur un jeu de données.\n\npredict : Effectue une prédiction à partir de variables explicatives.\n\nscore : Calcule une métrique de performance du modèle en comparant les vraies valeurs de la variable cible à la prédiction.\nAinsi pour entraîner un modèle de Machine Learning avec Scikit-Learn, cela se fera toujours de la même manière, en 4 lignes de code :\n\nInstanciation du modèle choisi  \nPour créer un modèle, on génère un objet de la classe correspondante à cet objet\nLinearRegression est un algorithme de régression\nOn peut spécifier certains paramètres de l'algorithme entre les parenthèses  \n\nmodel = LinearRegression() \n\nEntrainement du modèle sur le jeu de données d'entraînement\n\nmodel.fit(X_train,y_train) \n\nPrédiction de la variable cible pour le jeu de données test, ces prédictions sont stockées dans y_pred\n\ny_pred = model.predict(X_test) \n\nEvaluation du modèle : à partir de X_test, on prédit la variable cible que l'on compare à y_test\n\nmodel.score(X_test,y_test)\nQue ce soit pour développer un algorithme de classification ou de régression, cela se fera quasiment toujours de la même manière.\n2. Classification\n2.1 Rappel\nEn Machine Learning, l'objectif est de prédire la valeur d'une variable cible à partir de variables explicatives. Dans un problème de classification, la variable cible prend des valeurs discrètes. Ces valeurs peuvent être numériques ou littérale mais dans les deux cas, la variable cible prend un nombre fini de valeurs.\nLes différentes valeurs prises par la variable cible sont ce qu'on appelle des classes.\nL'objectif de la classification est donc de prédire la classe d'une observation à partir de ses variables explicatives.\n\n2.2 Mise en pratique\nL'exercice suivant porte sur un jeu de données qui a pour objectif de prédire si un patient est diabétique ou non en fonction de certaines mesures médicales. A noter que plusieurs contraintes ont été imposées dans ce jeu de données : tous les patients sont des femmes âgées d'au moins 21 ans et d'origine indienne Pima.\nVoici le descriptif des données :\nVariable\tDescription\n'Pregnancies'\tNombre de grossesses\n'Glucose'\tConcentration plasmatique de glucose\n'BloodPressure'\tTension artérielle\n'SkinThickness'\tÉpaisseur du pli du triceps\n'Insulin'\tInsuline sérique à 2 heures\n'BMI'\tIndice de masse corporelle\n'DiabetesPedigreeFunction'\tFonction pédigrée du diabète\n'Age'\tAge\n'Outcome'\t0 si la patiente n'a pas le diabète, 1 sinon\nL'objectif de cette classification va être donc de prédire si une patiente va être atteinte de diabète ou non.\n(a)\n(1) Charger la librairie pandas sous son alias usuel.\n\n(2) Lire le fichier 'diabetes.csv' dans un DataFrame appelé df_class et afficher les cinq premières lignes du DataFrame."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA120 .Final = EXAMEN 6",
+        "description": "Learn from notebook: DA120 .Final = EXAMEN 6",
+        "initialCode": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = pd.read_csv('/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/train.csv')\ndisplay(df.shape)\ndf.head()\n\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA121 .3.Scikit-learn - Classification de vins à l'aide des Support Vector Machine (SVM)",
+        "description": "Learn from notebook: DA121 .3.Scikit-learn - Classification de vins à l'aide des Support Vector Machine (SVM)",
+        "initialCode": "",
+        "hints": [
+          "Le DataFrame wine contient 14 colonnes. La classe de chaque vin est présente dans la première colonne 'Wine', les autres colonnes représentent la quantité des différentes composantes chimiques des vins. \nAucune donnée n'est manquante.\nRemarquons que toutes les variables sont numériques, ce qui s'avère pratique dans notre exercice, puisque les SVM ne fonctionnent qu'avec de telles variables. Cependant, un second coup d'œil permet également de remarquer que les variables ont des échelles très différentes, il conviendra donc de les standardiser par la suite.\n(i) Créer une variable data dont laquelle vous stockez les features.\n(j) Stocker les données cibles dans la variable target.\n   Rappel : la méthode iloc permet d'accéder aux valeurs du DataFrame via des indices ou plages d'indices."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA120 .5.Scikit-learn Etude de cas - problème de classification",
+        "description": "Learn from notebook: DA120 .5.Scikit-learn Etude de cas - problème de classification",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA121 .9.Scikit-learn Classification avancée  Sélection de modèles",
+        "description": "Learn from notebook: DA121 .9.Scikit-learn Classification avancée  Sélection de modèles",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA120 .1.Scikit-learn IntroductionML",
+        "description": "Learn from notebook: DA120 .1.Scikit-learn IntroductionML",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA120 .EXAMEN 6 (2) 2.29.43 PM",
+        "description": "Learn from notebook: DA120 .EXAMEN 6 (2) 2.29.43 PM",
+        "initialCode": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = pd.read_csv('/Users/metoyerdeo/Documents/DEO/DATA SCIENTEST/train.csv')\ndisplay(df.shape)\ndf.head()\n\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA126 .2.Pipelines avec Sciki-learn",
+        "description": "Learn from notebook: DA126 .2.Pipelines avec Sciki-learn",
+        "initialCode": "from sklearn.pipeline import Pipeline\nfrom sklearn.svm import SVC                          #Modèle : Support vector Classifier\nfrom sklearn.preprocessing import StandardScaler     #Transformeur : Normalisation\nfrom sklearn.preprocessing import PolynomialFeatures #Transformeur : Features polynomiaux\nfrom sklearn.decomposition import PCA                #Transformeur : Analyse en Composantes Principales\nscaler = StandardScaler()             \npoly = PolynomialFeatures(2)\npca = PCA()\nsvc = SVC()\ncomposite_model = Pipeline(steps = [('normalisation', scaler),#étape 1: Normalisation des données\n                                    ('poly_features', poly),  #étape 2: Calcul de features polynomiaux\n                                    ('pca', pca),             #étape 3: Analyse Composantes Principales\n                                    ('model', svc)])          #étape 4: Entraînement d'un SVC",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA121 .8.Scikit-learn Classification avancée  Jeux de données déséquilibrés",
+        "description": "Learn from notebook: DA121 .8.Scikit-learn Classification avancée  Jeux de données déséquilibrés",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA120 .4.Scikit-learn Méthodologie - De la préparation à la modélisation",
+        "description": "Learn from notebook: DA120 .4.Scikit-learn Méthodologie - De la préparation à la modélisation",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA120 .EXAMEN 6",
+        "description": "Learn from notebook: DA120 .EXAMEN 6",
+        "initialCode": "import pandas as pd\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "numeric_features = ['Age', 'RoomService', 'FoodCourt', 'ShoppingMall','Spa','VRDeck']\n \nnumeric_transformer = Pipeline(\n     [(\"imputer\", SimpleImputer(missing_values=np.nan, strategy=\"median\"))])\n# Traitement des variables catégorielles \ncategorical_features = ['HomePlanet','CryoSleep','Destination','VIP']\ncategorical_transformer = Pipeline(\n      steps=[(\"imputer1\", SimpleImputer(missing_values=np.nan, \nstrategy=\"most_frequent\")),\n    (\"encoder\",OneHotEncoder(drop = \"first\", sparse=False))]\n)\n#Column Tranformer pour appliquer les transformations sur certaines colonnes\npreprocessor = ColumnTransformer(\n    transformers=[\n        (\"num\", numeric_transformer, numeric_features),\n        (\"cat\", categorical_transformer, categorical_features),\n    ]\n)\n#Pipeline final de regroupement\nclf = Pipeline(\n    steps=[(\"preprocessor\", preprocessor), \n           (\"classifier\", RandomForestClassifier())]\n)\nclf.fit(X_feats_train, y_target_train)\nprint(y_test, clf.predict(X_feats_test))"
+      },
+      {
+        "title": "DA128 .EXAMEN",
+        "description": "Learn from notebook: DA128 .EXAMEN",
+        "initialCode": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\nimport seaborn as sns",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# (u) Que pouvez-vous en conclure ?\n# On remarque que les résultats sont très différents de ceux obtenus avec l'ACP. En effet, l'ACP permet de réduire la dimensionnalité des données tout en conservant les informations les plus importantes. Le T-SNE, quant à lui, permet de représenter les données dans un espace à 2 dimensions tout en conservant les distances entre les points. C'est pourquoi, les résultats obtenus avec l'ACP sont plus pertinents que ceux obtenus avec le T-SNE.\n"
+      },
+      {
+        "title": "DA120 .6.Scikit-learn Etude de cas - problème de régression",
+        "description": "Learn from notebook: DA120 .6.Scikit-learn Etude de cas - problème de régression",
+        "initialCode": "",
+        "hints": [
+          "2. Préparation des données \nLa colonne 'Unnamed: 0' est sans importance pour notre problème : elle correspond à un indice de création de la table. Deux options s'offrent à nous, nous pouvons soit la supprimer soit la passer en colonne d'index.\n(c) Choisisser l'option que vous souhaitez effectuer sur la colonne Unnamed: 0 et exécutez la."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA121 .5.Scikit-learn Arbres de décisio",
+        "description": "Learn from notebook: DA121 .5.Scikit-learn Arbres de décisio",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA126 .1.Pipelines avec Scikit-learn",
+        "description": "Learn from notebook: DA126 .1.Pipelines avec Scikit-learn",
+        "initialCode": "from sklearn.pipeline import FeatureUnion\nfrom sklearn.preprocessing import PolynomialFeatures, StandardScaler, MinMaxScaler\npoly = PolynomialFeatures(2)     # Calcule les features polynomiaux d'ordre 2\nstd_scaler = StandardScaler()    # Centrage et réduction\nmm_scaler = MinMaxScaler()       # Normalisation min-max\nunion = FeatureUnion([ ('poly_features', poly),\n                       ('normalisation', std_scaler),\n                       ('minmax_scaling', mm_scaler) ])",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA121 .1.Scikit-learn Modèles de classification avec scikit-learn",
+        "description": "Learn from notebook: DA121 .1.Scikit-learn Modèles de classification avec scikit-learn",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA121 .7.Scikit-learn Les forêts aléatoires",
+        "description": "Learn from notebook: DA121 .7.Scikit-learn Les forêts aléatoires",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA120 .3.Scikit-learn Modèles arbres et modèles linéaires",
+        "description": "Learn from notebook: DA120 .3.Scikit-learn Modèles arbres et modèles linéaires",
+        "initialCode": "import pandas as pd\n\ndf = pd.read_csv('titanic.csv', index_col=0)\n\ndf.info()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA121 .6.Scikit-learn Algorithmes de Boosting et de Bagging",
+        "description": "Learn from notebook: DA121 .6.Scikit-learn Algorithmes de Boosting et de Bagging",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA121 .2.Scikit-learn - Modèles de classification",
+        "description": "Learn from notebook: DA121 .2.Scikit-learn - Modèles de classification",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      }
+    ]
+  },
+  "level5": {
+    "title": "Level 5: Level 5 Advanced Topics",
+    "content": "Advanced content from Level_5_Advanced_Topics",
+    "exercises": [
+      {
+        "title": "DA141 2.Pyspark dataprocessing",
+        "description": "Learn from notebook: DA141 2.Pyspark dataprocessing",
+        "initialCode": "# (a) Exécuter la cellule ci-dessous pour importer SparkContext et définir un SparkContext local nommé sc.\nfrom pyspark import SparkContext\nsc = SparkContext.getOrCreate()\n",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# (b) Fermer le SparkContext sc.\nsc.stop()\n"
+      },
+      {
+        "title": "DA141 3.Pyspark dataframe",
+        "description": "Learn from notebook: DA141 3.Pyspark dataframe",
+        "initialCode": "# (a) Exécuter la cellule ci-dessous pour construire la SparkSession de l'exercice.\nfrom pyspark.sql import SparkSession\nfrom pyspark import SparkContext\n\nSparkContext.getOrCreate()\n\nspark = SparkSession.builder \\\n    .master(\"local[*]\") \\\n    .appName(\"Introduction Spark DataFrame\") \\\n    .getOrCreate()\n    \nspark",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA142 2.SQL requêtes",
+        "description": "Learn from notebook: DA142 2.SQL requêtes",
+        "initialCode": "from Widget_Template import build_SQL_widget\nbuild_SQL_widget(\"chinook.db\")",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA141 1.Pyspark introduction",
+        "description": "Learn from notebook: DA141 1.Pyspark introduction",
+        "initialCode": "# (a) Exécuter la cellule ci-dessous pour importer SparkContext et définir un SparkContext local.\n\nfrom pyspark import SparkContext\nsc = SparkContext(\"local\", \"First App\")\nsc",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# (c) Fermer sc, le SparkContext de l'exercice.\n\nsc.stop()"
+      },
+      {
+        "title": "DA133 3.Webscraping Collecter les données",
+        "description": "Learn from notebook: DA133 3.Webscraping Collecter les données",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA MC  Approfondissement",
+        "description": "Learn from notebook: DA MC  Approfondissement",
+        "initialCode": "# Séparer les données en un jeu d'entraînement et un jeu de test (20%)\n\nfrom sklearn.model_selection import train_test_split\ny = df['target']\nx = df.drop(['target'], axis=1)\n\nx_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)\n\nprint(\"x_train: \", x_train.shape)\nprint(\"x_test: \", x_test.shape)",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA133 2.Webscraping Request et BeautifulSoup",
+        "description": "Learn from notebook: DA133 2.Webscraping Request et BeautifulSoup",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DC133 0.Intermediate importation in python: URL:JSON:TWITTER",
+        "description": "Learn from notebook: DC133 0.Intermediate importation in python: URL:JSON:TWITTER",
+        "initialCode": "%matplotlib inline\nimport matplotlib.pyplot as plt\nfrom urllib.request import urlretrieve\nimport pandas as pd\n\nurl='https://assets.datacamp.com/production/course_1606/datasets/winequality-red.csv'\n\n# Read file into a DataFrame: df\ndf = pd.read_csv(url, sep=';')\n\n# Print the head of the DataFrame\nprint(df.head())\n\n\n# Plot first column of df\ndf.iloc[:, 0].hist()\nplt.xlabel('fixed acidity (g(tartaric acid)/dm$^3$)')\nplt.ylabel('count')\nplt.show()",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# Import package\nimport requests\n\n# Assign URL to variable: url\nurl = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=pizza'\n\n\n# Package the request, send the request and catch the response: r\nr = requests.get(url)\n\n# Decode the JSON data into a dictionary: json_data\njson_data = r.json()\n\n# Print the Wikipedia page extract\npizza_extract = json_data['query']['pages']['24768']['extract']\n\nprint(pizza_extract)\n"
+      },
+      {
+        "title": "DA141 5.Pyspark mlpipelines",
+        "description": "Learn from notebook: DA141 5.Pyspark mlpipelines",
+        "initialCode": "# Import de SparkSession et SparkContext\nfrom pyspark.sql import SparkSession\nfrom pyspark import SparkContext\n\n# Définition d'un SparkContext en local\nsc = SparkContext.getOrCreate()\n\n# Construction d'une Session Spark\nspark = SparkSession \\\n    .builder \\\n    .appName(\"Pipelines Spark ML\") \\\n    .getOrCreate()\n    \nspark",
+        "hints": [
+          "1. Les variables catégorielles\nAvant d'entraîner les modèles de classification, il est important de comprendre que le format svmlib ne supporte pas les strings. Il faut donc passer par un indexeur, c'est-à-dire un modèle permettant de transformer une variable catégorielle en une série d'indices.\nPour comprendre cette démarche, nous allons travailler sur la base de données Human Ressources Analytics qui contient des variables continues et des variables catégorielles.\nCette base de données est relativement petite (14999 lignes) et ne requiert pas l'utilisation de Spark. Elle reste cependant convenable pour un exercice d'apprentissage.\nLa base de données prend en compte différents indices de satisfaction et d'implication d'employés dans une société fictive. Ces données doivent permettre de déterminer quels employés sont susceptibles de quitter l'entreprise.\n(a) Importer le fichier HR_comma_sep.csv dans un DataFrame nommé hr.\n(b) Afficher un extrait du DataFrame hr.",
+          "La transformation directe de la base de données en svmlib, comme vu dans l'exercice précédent, génère l'erreur suivante :  ValueError: could not convert string to float: 'sales'\n   En effet, la fonction DenseVector ne gère pas les strings, il faut donc indexer les variables non numériques.\n\nLa fonction StringIndexer du package pyspark.ml.feature permet d'indexer les variables selon la fréquence de leurs modalités: la modalité la plus fréquente aura pour indice 0.0, la modalité suivante 1.0, etc. Pour cela, la fonction prend en entrée une variable et en créé une variable indexée.\nLa fonction StringIndexer est comme un estimateur, de la même façon qu'une régression ou un arbre de décision. Elle s'utilise donc en deux étapes :\nCréer un indexeur en spécifiant les colonnes d'entrée et de sortie (paramètres inputCol et outputCol) et chercher des modalités dans la base de données grâce à la méthode fit.\nAppliquer l'indexeur à la base de données par le biais de la méthode transform.\nExemple :\nDeux étapes pour indexer la variable 'name' d'un DataFrame df:\n\nPremière étape: création de l'indexeur.\nnameIndexer = StringIndexer(inputCol='name', outputCol='indexedName').fit(df)\n\nDeuxième étape: application au DataFrame.\nindexed = nameIndexer.transform(df)\n(e) Importer la fonction StringIndexer depuis le package pyspark.ml.feature.\n(f) Créer un indexeur SalesIndexer transformant une variable sales en une variable indexedSales.\n(g) Indexer la variable sales de hr dans un nouveau DataFrame nommé hrSalesIndexed.\n(h) Afficher un extrait de hrSalesIndexed."
+        ],
+        "solution": "# (a) Importer la fonction MulticlassClassificationEvaluator.\n\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\n# (b) Créer evaluator l'évaluateur d'accuracy du modèle.\n\nevaluator = MulticlassClassificationEvaluator(labelCol=\"indexedLabel\", predictionCol=\"prediction\", metricName=\"accuracy\")\n\n# (c) Calculer et afficher la précision accuracy de la prédiction sur l'échantillon test.\n\naccuracy = evaluator.evaluate(predictions)\nprint(\"Test Error = %g\" % (1.0 - accuracy))\n"
+      },
+      {
+        "title": "DA141 4.Pyspark regression",
+        "description": "Learn from notebook: DA141 4.Pyspark regression",
+        "initialCode": "# Import de SparkSession et SparkContext\nfrom pyspark.sql import SparkSession\nfrom pyspark import SparkContext\n\n# Définition d'un SparkContext en local\nsc = SparkContext.getOrCreate()\n\n# Construction d'une session Spark\nspark = SparkSession \\\n    .builder \\\n    .appName(\"Introduction à Spark ML\") \\\n    .getOrCreate()\n    \nspark",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# (c) Afficher les coefficients coefficients du modèle. La fonction pprint du module pprint permet d'avoir un affichage plus élégant des données.\nfrom pprint import pprint\nprint(\"Coefficients: %s\" % str(linearModel.coefficients))\n\n# (d) Fermer la session spark en utilisant la méthode stop.\nspark.stop()"
+      },
+      {
+        "title": "DA142 1.SQL introduction",
+        "description": "Learn from notebook: DA142 1.SQL introduction",
+        "initialCode": "# (a) Donner le schéma et la représentation formelle de la table Sales décrite ci-dessous.\n'''\n`SaleId` : Identifiant unique de la vente (INTEGER)\n`Item` : Nom de l'article vendu (VARCHAR)\n`Sale Date` : Date de la vente (DATE)\n`Quantity` :  Quantité d'items vendus (INTEGER)\n`Unit Price` : Prix unitaire de l'item (FLOAT ou DOUBLE)\n\nLa représentation formelle de la table est donnée par:\nSales(SaleId, Item, Sale date, Quantity, Unit Price)\n'''",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "'''\nf) Plusieurs acteurs jouent dans un même film et un acteur peut jouer dans différents films. \nC'est donc une relation Many to Many.\ng) Chaque film correspond à un résumé et réciproquement (on peut remarquer que FilmId est une clé primaire de Synopsis). \nC'est donc une relation One to One.\nh) Chaque film peut correspondre à plusieurs lignes de la table Casting (toutes les lignes correspondant au film). \nEn revanche, une ligne de la table Casting ne correspond qu'à un seul film. C'est donc une relation One to Many.\n'''\n"
+      },
+      {
+        "title": "DA MC Scratch",
+        "description": "Learn from notebook: DA MC Scratch",
+        "initialCode": "import warnings\nwarnings.filterwarnings('ignore')\n\nimport json\nimport pandas as pd\npd.set_option('display.max_columns', 500)\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n%matplotlib inline\n\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.preprocessing import OneHotEncoder\n\n# Modèle de classification que l'on va utiliser\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import GridSearchCV\n\n# Pour évaluer nos modèles\nfrom sklearn.metrics import classification_report, accuracy_score, roc_curve, auc",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "plt.figure(figsize = (10,14))\npd.Series(grid_lr.best_estimator_.coef_[0], X_test.columns).sort_values(ascending=False).plot(kind='barh');"
+      },
+      {
+        "title": "DA133 1.Webscraping Inspecter une page web",
+        "description": "Learn from notebook: DA133 1.Webscraping Inspecter une page web",
+        "initialCode": "",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": ""
+      },
+      {
+        "title": "DA131 .1.Intro aux expressions régulières",
+        "description": "Learn from notebook: DA131 .1.Intro aux expressions régulières",
+        "initialCode": "import re",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "txt = 'g.petoit93@gmail.com oliver.small459@orange.fr \\n m.lameinère@yahoo.fr'\n\nr = re.compile(r\"\"\"[A-Za-z0-9\\.-éà]+  #n'importe quelle suite de caractères au moins 1 fois\n                    @                 #le caractère @\n                    [a-zA-Z\\.-]+      #la suite de caractères après le @\n                    \"\"\", re.VERBOSE)\n\nemail = r.findall(txt)\nprint(email)\n"
+      },
+      {
+        "title": "DA141 6.Pyspark modeltuning",
+        "description": "Learn from notebook: DA141 6.Pyspark modeltuning",
+        "initialCode": "# (a) Exécuter la cellule ci-dessous pour construire une SparkSession pour notre exercice.\n# Import de SparkSession et de SparkContext\nfrom pyspark.sql import SparkSession\nfrom pyspark import SparkContext\n\n# Création d'un SparkContext\nsc = SparkContext.getOrCreate()\n\n# Création d'une session Spark\nspark = SparkSession \\\n    .builder \\\n    .appName(\"ML Tuning\") \\\n    .getOrCreate()\n        \nspark",
+        "hints": [
+          "Try to understand the code.",
+          "Look at the imports.",
+          "Check the output."
+        ],
+        "solution": "# (a) Afficher les coefficients obtenus par le modèle optimal.\ncv_model.bestModel.coefficients"
+      }
+    ]
+  }
+}

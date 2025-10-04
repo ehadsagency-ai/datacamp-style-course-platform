@@ -1,3 +1,17 @@
+:root {
+  --bg-color: #FEF7E0;
+  --text-color: #1E3A8A;
+  --card-bg: #FFFFFF;
+  --border-color: #1E3A8A;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --card-bg: #2d2d2d;
+  --border-color: #ffffff;
+}
+
 .pixel-title {
   font-family: 'Courier New', monospace;
   font-weight: bold;
@@ -5,12 +19,50 @@
 
 .pixel-button {
   font-family: 'Courier New', monospace;
-  border: 2px solid #1E3A8A;
+  border: 2px solid var(--border-color);
   border-radius: 0;
   transition: all 0.2s;
+  color: var(--text-color);
 }
 
 .pixel-button:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 2px 2px 0 #1E3A8A;
+  box-shadow: 2px 2px 0 var(--border-color);
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.completion-badge {
+  animation: bounceIn 0.6s ease-out;
+}
+
+.terminal-output {
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  min-height: 100px;
+}
+
+.terminal-output::before {
+  content: "$ ";
+  color: #00ff00;
 }

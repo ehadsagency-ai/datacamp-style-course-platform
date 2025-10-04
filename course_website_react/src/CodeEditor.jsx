@@ -1,128 +1,80 @@
-import { useState, useEffect } from 'react';
+ import { useState, useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 
-function CodeEditor({ initialCode, onRun, onValidate, hints = [], solution = '' }) {
+function CodeEditor({ initialCode, onRun, onValidate, disableValidate = false }) {
   const [code, setCode] = useState(initialCode);
   const [output, setOutput] = useState('');
   const [pyodide, setPyodide] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [currentHintIndex, setCurrentHintIndex] = useState(-1);
-  const [showSolution, setShowSolution] = useState(false);
-  const [isRunning, setIsRunning] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Load Pyodide on component mount
   useEffect(() => {
-    async function loadPyodideInstance() {
+    const loadPyodide = async () => {
       try {
-        const { loadPyodide } = await import('pyodide');
-        const pyodideInstance = await loadPyodide({
-          indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.28.3/full/'
+        const pyodideInstance = await window.loadPyodide({
+          indexURL: "https://cdn.jsdelivr.net/pyodide/v0.28.3/full/"
         });
-
-        // Load common data science packages
-        setOutput('Loading Python packages (numpy, pandas, matplotlib)...');
-        await pyodideInstance.loadPackage(['numpy', 'pandas', 'matplotlib']);
-
+        await pyodideInstance.loadPackage(['numpy', 'pandas']);
         setPyodide(pyodideInstance);
-        setLoading(false);
-        setOutput('✅ Python environment ready! Write your code and click "Run Code".');
+        setIsLoading(false);
       } catch (error) {
-        setOutput(`❌ Error loading Python: ${error.message}`);
-        setLoading(false);
+        console.error('Failed to load Pyodide:', error);
+        setOutput('Error: Failed to load Pyodide');
+        setIsLoading(false);
       }
-    }
+    };
 
-    loadPyodideInstance();
+    if (!window.loadPyodide) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/pyodide/v0.28.3/full/pyodide.js';
+      script.onload = loadPyodide;
+      document.head.appendChild(script);
+    } else {
+      loadPyodide();
+    }
   }, []);
 
   const runCode = async () => {
     if (!pyodide) {
-      setOutput('⏳ Python environment is still loading...');
+      setOutput('Pyodide is not loaded yet.');
       return;
     }
 
-    setIsRunning(true);
-    setOutput('🔄 Running code...');
-
     try {
-      // Redirect stdout to capture print statements
-      await pyodide.runPython(`
+      // Capture stdout
+      pyodide.runPython(`
 import sys
-import io
-sys.stdout = io.StringIO()
+from io import StringIO
+old_stdout = sys.stdout
+sys.stdout = captured_output = StringIO()
       `);
 
-      // Run user code
-      await pyodide.runPythonAsync(code);
+      // Run the user's code
+      pyodide.runPython(code);
 
-      // Get captured output
-      const stdout = pyodide.runPython('sys.stdout.getvalue()');
+      // Get the captured output
+      const result = pyodide.runPython('captured_output.getvalue()');
 
-      if (stdout) {
-        setOutput(`✅ Success!\n\n${stdout}`);
-        onRun && onRun('success', stdout);
-      } else {
-        setOutput('✅ Code executed successfully! (No output)');
-        onRun && onRun('success', '');
-      }
+      // Restore stdout
+      pyodide.runPython('sys.stdout = old_stdout');
+
+      setOutput(result || 'Code executed successfully (no output)');
+      onRun && onRun('success');
     } catch (error) {
-      const errorMsg = error.message || String(error);
-      setOutput(`❌ Error:\n\n${errorMsg}`);
-      onRun && onRun('error', errorMsg);
-    } finally {
-      setIsRunning(false);
+      setOutput(`Error: ${error.message}`);
+      onRun && onRun('error');
     }
   };
 
-  const validateCode = async () => {
-    if (!pyodide) {
-      setOutput('⏳ Python environment is still loading...');
-      return;
-    }
-
-    setIsRunning(true);
-
+  const validateCode = () => {
+    // Simple validation - check for basic Python syntax
     try {
-      // Run the code first
-      await pyodide.runPython(`
-import sys
-import io
-sys.stdout = io.StringIO()
-      `);
-
-      await pyodide.runPythonAsync(code);
-      const stdout = pyodide.runPython('sys.stdout.getvalue()');
-
-      // Call validation callback with output
-      if (onValidate) {
-        const isValid = onValidate(stdout, code);
-        if (isValid) {
-          setOutput(`✅ Validation passed!\n\n${stdout}`);
-        } else {
-          setOutput(`⚠️ Validation failed. Check the requirements.\n\n${stdout}`);
-        }
+      if (pyodide) {
+        pyodide.runPython(code); // Try to compile
       }
+      const hasPrint = code.includes('print');
+      onValidate && onValidate({ hasPrint, valid: true });
     } catch (error) {
-      setOutput(`❌ Error during validation:\n\n${error.message}`);
-    } finally {
-      setIsRunning(false);
-    }
-  };
-
-  const showNextHint = () => {
-    if (currentHintIndex < hints.length - 1) {
-      setCurrentHintIndex(prev => prev + 1);
-    }
-  };
-
-  const toggleSolution = () => {
-    if (!showSolution && solution) {
-      setCode(solution);
-      setShowSolution(true);
-    } else {
-      setCode(initialCode);
-      setShowSolution(false);
-      setCurrentHintIndex(-1);
+      onValidate && onValidate({ hasPrint: false, valid: false, error: error.message });
     }
   };
 
@@ -134,65 +86,26 @@ sys.stdout = io.StringIO()
         value={code}
         onChange={setCode}
         theme="vs-dark"
-        options={{
-          minimap: { enabled: false },
-          fontSize: 14,
-          lineNumbers: 'on',
-          scrollBeyondLastLine: false,
-          automaticLayout: true,
-        }}
       />
-
-      <div className="mt-4 flex gap-2 flex-wrap">
+      <div className="mt-4 flex gap-2">
         <button
           onClick={runCode}
-          disabled={loading || isRunning}
-          className="pixel-button px-4 py-2 bg-data-deep text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={isLoading}
+          className="pixel-button px-4 py-2 bg-data-deep text-white disabled:opacity-50"
         >
-          {isRunning ? '⏳ Running...' : '▶️ Run Code'}
+          {isLoading ? 'Loading Pyodide...' : 'Run Code'}
         </button>
-
         <button
           onClick={validateCode}
-          disabled={loading || isRunning}
-          className="pixel-button px-4 py-2 bg-data-moss text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={disableValidate}
+          className="pixel-button px-4 py-2 bg-data-moss text-white disabled:opacity-50"
         >
-          ✓ Validate
+          Validate
         </button>
-
-        {hints.length > 0 && (
-          <button
-            onClick={showNextHint}
-            disabled={currentHintIndex >= hints.length - 1}
-            className="pixel-button px-4 py-2 bg-yellow-600 text-white disabled:opacity-50"
-          >
-            💡 Hint ({currentHintIndex + 1}/{hints.length})
-          </button>
-        )}
-
-        {solution && (
-          <button
-            onClick={toggleSolution}
-            className="pixel-button px-4 py-2 bg-purple-600 text-white"
-          >
-            {showSolution ? '🔄 Reset' : '👁️ Show Solution'}
-          </button>
-        )}
       </div>
-
-      {currentHintIndex >= 0 && hints[currentHintIndex] && (
-        <div className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
-          <p className="font-bold text-yellow-800">💡 Hint {currentHintIndex + 1}:</p>
-          <p className="text-yellow-900">{hints[currentHintIndex]}</p>
-        </div>
-      )}
-
-      <div className="mt-4 p-4 bg-gray-900 text-green-400 rounded font-mono text-sm">
-        <div className="flex justify-between items-center mb-2">
-          <h3 className="font-bold text-green-300">Output:</h3>
-          {loading && <span className="text-yellow-400 text-xs">Loading Python...</span>}
-        </div>
-        <pre className="whitespace-pre-wrap">{output}</pre>
+      <div className="mt-4">
+        <h3 className="font-bold mb-2">Terminal Output:</h3>
+        <div className="terminal-output">{output}</div>
       </div>
     </div>
   );

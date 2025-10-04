@@ -1,6 +1,7 @@
 {
   "name": "data-analyst-course-app",
-  "type": "module",  "private": true,
+  "type": "module",
+  "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -10,6 +11,7 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
+    "jspdf": "^3.0.3",
     "pyodide": "^0.28.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
